@@ -32,16 +32,23 @@ namespace CT.Backend.Shared.ScoreCalculators
                 }
                 else
                 {
-                    var fullAnswer = theQuestion.PossibleAnswers.FirstOrDefault(p => p.Value == answer.First().Value);
-                    if(fullAnswer == null)
+                    DateTime dateValue;
+                    if (DateTime.TryParse(answer.First().Value, out dateValue))
                     {
-                        sum = 0;
+                        sum += DateTime.Now.Subtract(dateValue).Days;
                     }
                     else
                     {
-                        sum += fullAnswer.Score;
+                       var fullAnswer = theQuestion.PossibleAnswers.FirstOrDefault(p => p.Value == answer.First().Value);
+                        if(fullAnswer == null)
+                        {   
+                            sum = 0;
+                        }
+                        else
+                        {
+                            sum += fullAnswer.Score;
+                        }
                     }
-                    
                 }
 
             }

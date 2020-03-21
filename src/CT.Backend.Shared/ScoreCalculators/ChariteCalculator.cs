@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace CT.Backend.Shared.ScoreCalculators
@@ -9,28 +10,12 @@ namespace CT.Backend.Shared.ScoreCalculators
     public class ChariteCalculator : ICalculator
     {
         public string SourceId { get => "covapp.charite"; }
-        public IEnumerable<Question> Questions { get => new List<Question>() { 
-            new Question()
-            {
-                Description = "Wie alt sind Sie?",
-                Id = "A",
-                PossibleAnswers = new List<Answer>()
-                {
-                    new Answer()
-                    {
-                        Value = "0",
-                        Description = "unter 40",
-                        Score = 0
-                    },
-                    new Answer()
-                    {
-                        Value = "1",
-                        Description = "unter 50",
-                        Score = 2
-                    }
-                }
-            }
-        } ; set => throw new NotImplementedException(); }
+
+        public IEnumerable<Question> Questions
+        {
+            get => new QuestionGenerator().GetQuestions();
+            set => throw new NotImplementedException();
+        }
 
         /// <summary>
         /// Calculate a risk store.
@@ -43,7 +28,7 @@ namespace CT.Backend.Shared.ScoreCalculators
             foreach (var answer in Answers)
             {
                 var theQuestion = Questions.FirstOrDefault(q => q.Id == answer.First().Key);
-                if(theQuestion == null)
+                if (theQuestion == null)
                 {
                     sum = 0;
                 }
@@ -52,7 +37,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                     sum += theQuestion.PossibleAnswers.First(p =>
                     p.Value == answer.First().Value).Score;
                 }
-                
+
             }
             return sum;
         }

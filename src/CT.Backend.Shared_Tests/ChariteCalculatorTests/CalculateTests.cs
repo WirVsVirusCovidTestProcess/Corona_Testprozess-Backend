@@ -15,7 +15,7 @@ namespace CT.Backend.Shered_Tests.ChariteCalculatorTests
             {
                 new Dictionary<string, string>()
                 { 
-                    {"A", "1"}
+                    {"A", "2"}
                 }
             };
 
@@ -50,6 +50,38 @@ namespace CT.Backend.Shered_Tests.ChariteCalculatorTests
             var target = new ChariteCalculator();
             var actual = target.Calculate(answers);
             actual.Should().Be(0);
+        }
+
+        [TestMethod]
+        public void MultipleQuestions_Results5()
+        {
+            var answers = new List<Dictionary<string, string>>()
+            {
+                new Dictionary<string, string>()
+                {
+                    {"A", "0"}
+                },
+                new Dictionary<string, string>()
+                {
+                    {"B", "1"}
+                },
+                new Dictionary<string, string>()
+                {
+                    {"C", "2"}
+                },
+                new Dictionary<string, string>()
+                {
+                    {"D", "1"}
+                },
+                new Dictionary<string, string>()
+                {
+                    {"E", "1"}
+                }
+            };
+
+            var target = new ChariteCalculator();
+            var actual = target.Calculate(answers);
+            actual.Should().Be(5);
         }
     }
 }

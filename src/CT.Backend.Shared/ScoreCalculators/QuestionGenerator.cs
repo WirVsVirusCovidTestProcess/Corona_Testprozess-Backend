@@ -18,11 +18,11 @@ namespace CT.Backend.Shared.ScoreCalculators
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Jünger als 40", Score = 0 },
-                        new Answer() { Value = "1", Description = "40-50", Score = 1 },
-                        new Answer() { Value = "2", Description = "51-60", Score = 2 },
-                        new Answer() { Value = "3", Description = "61-70", Score = 3 },
-                        new Answer() { Value = "4", Description = "71-80", Score = 4 },
-                        new Answer() { Value = "5", Description = "Über 80", Score = 5 }
+                        new Answer() { Value = "1", Description = "40-50", Score = 0 },
+                        new Answer() { Value = "2", Description = "51-60", Score = 0 },
+                        new Answer() { Value = "3", Description = "61-70", Score = 0 },
+                        new Answer() { Value = "4", Description = "71-80", Score = 0 },
+                        new Answer() { Value = "5", Description = "Über 80", Score = 0 }
                     }
                 },
                 new Question()
@@ -32,7 +32,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Alleine wohnend", Score = 0 },
-                        new Answer() { Value = "1", Description = "Zusammen mit Familie, in einer Wohngemeinschaft oder betreuten Gemeinschaftseinrichtung", Score = 1 }
+                        new Answer() { Value = "1", Description = "Zusammen mit Familie, in einer Wohngemeinschaft oder betreuten Gemeinschaftseinrichtung", Score = 0 }
                     }
                 },
                 new Question()
@@ -42,8 +42,8 @@ namespace CT.Backend.Shared.ScoreCalculators
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Im medizinischen Bereich", Score = 0 },
-                        new Answer() { Value = "1", Description = "In einer Gemeinschaftseinrichtung (Schule, Kita, Universität, Heim etc.)", Score = 1 },
-                        new Answer() { Value = "2", Description = "Nein, in keinem der genannten Bereiche", Score = 2 }
+                        new Answer() { Value = "1", Description = "In einer Gemeinschaftseinrichtung (Schule, Kita, Universität, Heim etc.)", Score = 0 },
+                        new Answer() { Value = "2", Description = "Nein, in keinem der genannten Bereiche", Score = 0 }
                     }
                 },
                 new Question()
@@ -53,7 +53,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 }
+                        new Answer() { Value = "1", Description = "Nein", Score = 0 }
                     }
                 },
                 new Question()
@@ -63,7 +63,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 }
+                        new Answer() { Value = "1", Description = "Nein", Score = 0 }
                     }
                 },
                 new Question()
@@ -72,8 +72,8 @@ namespace CT.Backend.Shared.ScoreCalculators
                     Id = "F",
                     PossibleAnswers = new List<Answer>()
                     {
-                        new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 }
+                        new Answer() { Value = "0", Description = "Ja", Score = 1 },
+                        new Answer() { Value = "1", Description = "Nein", Score = 0 }
                     }
                 },
                 new Question()
@@ -82,9 +82,6 @@ namespace CT.Backend.Shared.ScoreCalculators
                     Id = "R1",
                     PossibleAnswers = new List<Answer>()
                     {
-                        //ToDo: Here we need an answer providing a date
-                        new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 }
                     }
                 },
                 new Question()
@@ -94,7 +91,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 }
+                        new Answer() { Value = "1", Description = "Nein", Score = 0 }
                     }
                 },
                 new Question()
@@ -103,15 +100,15 @@ namespace CT.Backend.Shared.ScoreCalculators
                     Id = "H",
                     PossibleAnswers = new List<Answer>()
                     {
-                        new Answer() { Value = "0", Description = "Italien", Score = 0 },
+                        new Answer() { Value = "0", Description = "Italien", Score = 1 },
                         new Answer() { Value = "1", Description = "Iran", Score = 1 },
-                        new Answer() { Value = "2", Description = "China", Score = 2 },
-                        new Answer() { Value = "3", Description = "Südkorea", Score = 3 },
-                        new Answer() { Value = "4", Description = "Frankreich", Score = 4 },
-                        new Answer() { Value = "5", Description = "Österreich", Score = 4 },
-                        new Answer() { Value = "6", Description = "Spanien", Score = 4 },
-                        new Answer() { Value = "7", Description = "USA", Score = 4 },
-                        new Answer() { Value = "8", Description = "Ich war in keinem der genannten Länder", Score = 5 }
+                        new Answer() { Value = "2", Description = "China", Score = 0 },
+                        new Answer() { Value = "3", Description = "Südkorea", Score = 0 },
+                        new Answer() { Value = "4", Description = "Frankreich", Score = 0 },
+                        new Answer() { Value = "5", Description = "Österreich", Score = 0 },
+                        new Answer() { Value = "6", Description = "Spanien", Score = 0 },
+                        new Answer() { Value = "7", Description = "USA", Score = 0 },
+                        new Answer() { Value = "8", Description = "Ich war in keinem der genannten Länder", Score = 0 }
                     }
                 },
                 new Question()
@@ -120,11 +117,11 @@ namespace CT.Backend.Shared.ScoreCalculators
                     Id = "J",
                     PossibleAnswers = new List<Answer>()
                     {
-                        new Answer() { Value = "0", Description = "Südtirol (entspricht Provinz Bozen) in der Region Trentino-Südtirol", Score = 0 },
+                        new Answer() { Value = "0", Description = "Südtirol (entspricht Provinz Bozen) in der Region Trentino-Südtirol", Score = 1 },
                         new Answer() { Value = "1", Description = "Region Emilia-Romagna", Score = 1 },
-                        new Answer() { Value = "2", Description = "Region Lombardei", Score = 2 },
-                        new Answer() { Value = "3", Description = "Stadt Vo in der Provinz Padua in der Region Venetien", Score = 3 },
-                        new Answer() { Value = "5", Description = "Ich war in keiner der genannten Regionen", Score = 5 }
+                        new Answer() { Value = "2", Description = "Region Lombardei", Score = 1 },
+                        new Answer() { Value = "3", Description = "Stadt Vo in der Provinz Padua in der Region Venetien", Score = 1 },
+                        new Answer() { Value = "5", Description = "Ich war in keiner der genannten Regionen", Score = 0 }
                     },
                 },
                 new Question()
@@ -133,9 +130,19 @@ namespace CT.Backend.Shared.ScoreCalculators
                     Id = "K",
                     PossibleAnswers = new List<Answer>()
                     {
-                        new Answer() { Value = "0", Description = "Provinz Ghom", Score = 0 },
+                        new Answer() { Value = "0", Description = "Provinz Ghom", Score = 1 },
                         new Answer() { Value = "1", Description = "Teheran", Score = 1 },
-                        new Answer() { Value = "5", Description = "Ich war in keiner der genannten Regionen", Score = 5 }
+                        new Answer() { Value = "5", Description = "Ich war in keiner der genannten Regionen", Score = 0 }
+                    }
+                },
+                new Question()
+                {
+                    Description = "China: Waren Sie in einer der folgenden Regionen?",
+                    Id = "K",
+                    PossibleAnswers = new List<Answer>()
+                    {
+                        new Answer() { Value = "0", Description = "Provinz Hubei (inkl. Stadt Wuhan)", Score = 1 },
+                        new Answer() { Value = "5", Description = "Ich war in keiner der genannten Regionen", Score = 0 }
                     }
                 },
                 new Question()
@@ -144,8 +151,8 @@ namespace CT.Backend.Shared.ScoreCalculators
                     Id = "L",
                     PossibleAnswers = new List<Answer>()
                     {
-                        new Answer() { Value = "0", Description = "Provinz Gyeongsangbuk-do (Nord-Gyeongsang)", Score = 0 },
-                        new Answer() { Value = "5", Description = "Ich war in keiner der genannten Regionen", Score = 5 }
+                        new Answer() { Value = "0", Description = "Provinz Gyeongsangbuk-do (Nord-Gyeongsang)", Score = 1 },
+                        new Answer() { Value = "5", Description = "Ich war in keiner der genannten Regionen", Score = 0 }
                     }
                 },
                 new Question()
@@ -154,8 +161,8 @@ namespace CT.Backend.Shared.ScoreCalculators
                     Id = "M",
                     PossibleAnswers = new List<Answer>()
                     {
-                        new Answer() { Value = "0", Description = "Region Grand Est (diese Region enthält Elsass, Lothringen und Champagne-Ardenne)", Score = 0 },
-                        new Answer() { Value = "5", Description = "Ich war in keiner der genannten Regionen", Score = 5 }
+                        new Answer() { Value = "0", Description = "Region Grand Est (diese Region enthält Elsass, Lothringen und Champagne-Ardenne)", Score = 1 },
+                        new Answer() { Value = "5", Description = "Ich war in keiner der genannten Regionen", Score = 0 }
                     }
                 },
                 new Question()
@@ -164,8 +171,8 @@ namespace CT.Backend.Shared.ScoreCalculators
                     Id = "N",
                     PossibleAnswers = new List<Answer>()
                     {
-                        new Answer() { Value = "0", Description = "Bundesland Tirol", Score = 0 },
-                        new Answer() { Value = "5", Description = "Ich war in keiner der genannten Regionen", Score = 5 }
+                        new Answer() { Value = "0", Description = "Bundesland Tirol", Score = 1 },
+                        new Answer() { Value = "5", Description = "Ich war in keiner der genannten Regionen", Score = 0 }
                     }
                 },
                 new Question()
@@ -174,20 +181,20 @@ namespace CT.Backend.Shared.ScoreCalculators
                     Id = "O",
                     PossibleAnswers = new List<Answer>()
                     {
-                        new Answer() { Value = "0", Description = "Madrid", Score = 0 },
-                        new Answer() { Value = "5", Description = "Ich war in keiner der genannten Regionen", Score = 5 }
+                        new Answer() { Value = "0", Description = "Madrid", Score = 1 },
+                        new Answer() { Value = "5", Description = "Ich war in keiner der genannten Regionen", Score = 0 }
                     }
                 },
                 new Question()
                 {
-                    Description = "China: Waren Sie in einer der folgenden Regionen?",
+                    Description = "USA: Waren Sie in einer der folgenden Regionen?",
                     Id = "P",
                     PossibleAnswers = new List<Answer>()
                     {
-                        new Answer() { Value = "0", Description = "Bundesstaat New York", Score = 0 },
-                        new Answer() { Value = "0", Description = "Bundesstaat Washington", Score = 0 },
-                        new Answer() { Value = "0", Description = "Bundesstaat Kalifornien", Score = 0 },
-                        new Answer() { Value = "5", Description = "Ich war in keiner der genannten Regionen", Score = 5 }
+                        new Answer() { Value = "0", Description = "Bundesstaat New York", Score = 1 },
+                        new Answer() { Value = "0", Description = "Bundesstaat Washington", Score = 1 },
+                        new Answer() { Value = "0", Description = "Bundesstaat Kalifornien", Score = 1 },
+                        new Answer() { Value = "5", Description = "Ich war in keiner der genannten Regionen", Score = 0 }
                     }
                 },
                 new Question()
@@ -196,9 +203,6 @@ namespace CT.Backend.Shared.ScoreCalculators
                     Id = "Q",
                     PossibleAnswers = new List<Answer>()
                     {
-                        //ToDo: Here we need an answer providing a date
-                        new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 }
                     }
                 },
                 new Question()
@@ -207,8 +211,8 @@ namespace CT.Backend.Shared.ScoreCalculators
                     Id = "R",
                     PossibleAnswers = new List<Answer>()
                     {
-                        new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 }
+                        new Answer() { Value = "0", Description = "Ja", Score = 1 },
+                        new Answer() { Value = "1", Description = "Nein", Score = 0 }
                     }
                 },
                 new Question()
@@ -217,9 +221,6 @@ namespace CT.Backend.Shared.ScoreCalculators
                     Id = "S",
                     PossibleAnswers = new List<Answer>()
                     {
-                        //ToDo: Here we need an answer providing a date
-                        new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 }
                     }
                 },
                 new Question()
@@ -228,8 +229,18 @@ namespace CT.Backend.Shared.ScoreCalculators
                     Id = "T",
                     PossibleAnswers = new List<Answer>()
                     {
-                        new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 }
+                        new Answer() { Value = "0", Description = "Ja", Score = 1 },
+                        new Answer() { Value = "1", Description = "Nein", Score = 0 }
+                    }
+                },
+                new Question()
+                {
+                    Description = "Hatten Sie Fieber (über 38 °C) in den letzten 4 Tagen?",
+                    Id = "T",
+                    PossibleAnswers = new List<Answer>()
+                    {
+                        new Answer() { Value = "0", Description = "Ja", Score = 1 },
+                        new Answer() { Value = "1", Description = "Nein", Score = 0 }
                     }
                 },
                 new Question()
@@ -239,13 +250,13 @@ namespace CT.Backend.Shared.ScoreCalculators
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Weniger als 38 °C", Score = 0 },
-                        new Answer() { Value = "1", Description = "38 °C", Score = 1 },
-                        new Answer() { Value = "2", Description = "39 °C", Score = 2 },
-                        new Answer() { Value = "3", Description = "40 °C", Score = 3 },
-                        new Answer() { Value = "4", Description = "41 °C", Score = 4 },
-                        new Answer() { Value = "4", Description = "42 °C", Score = 4 },
-                        new Answer() { Value = "4", Description = "Über 42 °C", Score = 4 },
-                        new Answer() { Value = "5", Description = "Ich weiß es nicht", Score = 5 }
+                        new Answer() { Value = "1", Description = "38 °C", Score = 0 },
+                        new Answer() { Value = "2", Description = "39 °C", Score = 0 },
+                        new Answer() { Value = "3", Description = "40 °C", Score = 0 },
+                        new Answer() { Value = "4", Description = "41 °C", Score = 0 },
+                        new Answer() { Value = "4", Description = "42 °C", Score = 0 },
+                        new Answer() { Value = "4", Description = "Über 42 °C", Score = 0 },
+                        new Answer() { Value = "5", Description = "Ich weiß es nicht", Score = 0 }
                     }
                 },
                 new Question()
@@ -254,8 +265,8 @@ namespace CT.Backend.Shared.ScoreCalculators
                     Id = "V",
                     PossibleAnswers = new List<Answer>()
                     {
-                        new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 }
+                        new Answer() { Value = "0", Description = "Ja", Score = 1 },
+                        new Answer() { Value = "1", Description = "Nein", Score = 0 }
                     }
                 },
                 new Question()
@@ -264,8 +275,8 @@ namespace CT.Backend.Shared.ScoreCalculators
                     Id = "W",
                     PossibleAnswers = new List<Answer>()
                     {
-                        new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 }
+                        new Answer() { Value = "0", Description = "Ja", Score = 1 },
+                        new Answer() { Value = "1", Description = "Nein", Score = 0 }
                     }
                 },
                 new Question()
@@ -274,8 +285,8 @@ namespace CT.Backend.Shared.ScoreCalculators
                     Id = "X",
                     PossibleAnswers = new List<Answer>()
                     {
-                        new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 }
+                        new Answer() { Value = "0", Description = "Ja", Score = 1 },
+                        new Answer() { Value = "1", Description = "Nein", Score = 0 }
                     }
                 },
                 new Question()
@@ -284,8 +295,8 @@ namespace CT.Backend.Shared.ScoreCalculators
                     Id = "Y",
                     PossibleAnswers = new List<Answer>()
                     {
-                        new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 }
+                        new Answer() { Value = "0", Description = "Ja", Score = 1 },
+                        new Answer() { Value = "1", Description = "Nein", Score = 0 }
                     }
                 },
                 new Question()
@@ -294,8 +305,8 @@ namespace CT.Backend.Shared.ScoreCalculators
                     Id = "Z",
                     PossibleAnswers = new List<Answer>()
                     {
-                        new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 }
+                        new Answer() { Value = "0", Description = "Ja", Score = 1 },
+                        new Answer() { Value = "1", Description = "Nein", Score = 0 }
                     }
                 },
                 new Question()
@@ -304,8 +315,8 @@ namespace CT.Backend.Shared.ScoreCalculators
                     Id = "AA",
                     PossibleAnswers = new List<Answer>()
                     {
-                        new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 }
+                        new Answer() { Value = "0", Description = "Ja", Score = 1 },
+                        new Answer() { Value = "1", Description = "Nein", Score = 0 }
                     }
                 },
                 new Question()
@@ -324,8 +335,8 @@ namespace CT.Backend.Shared.ScoreCalculators
                     Id = "AC",
                     PossibleAnswers = new List<Answer>()
                     {
-                        new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 }
+                        new Answer() { Value = "0", Description = "Ja", Score = 1 },
+                        new Answer() { Value = "1", Description = "Nein", Score = 0 }
                     }
                 },
                 new Question()
@@ -334,8 +345,8 @@ namespace CT.Backend.Shared.ScoreCalculators
                     Id = "AD",
                     PossibleAnswers = new List<Answer>()
                     {
-                        new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 }
+                        new Answer() { Value = "0", Description = "Ja", Score = 1 },
+                        new Answer() { Value = "1", Description = "Nein", Score = 0 }
                     }
                 },
                 new Question()
@@ -344,9 +355,6 @@ namespace CT.Backend.Shared.ScoreCalculators
                     Id = "AE",
                     PossibleAnswers = new List<Answer>()
                     {
-                        //ToDo: Here we need an answer providing a date
-                        new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 }
                     }
                 },
                 new Question()
@@ -356,8 +364,8 @@ namespace CT.Backend.Shared.ScoreCalculators
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 },
-                        new Answer() { Value = "2", Description = "Ich weiß es nicht", Score = 1 }
+                        new Answer() { Value = "1", Description = "Nein", Score = 0 },
+                        new Answer() { Value = "2", Description = "Ich weiß es nicht", Score = 0 }
                     }
                 },
                 new Question()
@@ -367,8 +375,8 @@ namespace CT.Backend.Shared.ScoreCalculators
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 },
-                        new Answer() { Value = "2", Description = "Ich weiß es nicht", Score = 1 }
+                        new Answer() { Value = "1", Description = "Nein", Score = 0 },
+                        new Answer() { Value = "2", Description = "Ich weiß es nicht", Score = 0 }
                     }
                 },
                 new Question()
@@ -378,8 +386,8 @@ namespace CT.Backend.Shared.ScoreCalculators
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 },
-                        new Answer() { Value = "2", Description = "Ich weiß es nicht", Score = 1 }
+                        new Answer() { Value = "1", Description = "Nein", Score = 0 },
+                        new Answer() { Value = "2", Description = "Ich weiß es nicht", Score = 0 }
                     }
                 },
                 new Question()
@@ -389,8 +397,8 @@ namespace CT.Backend.Shared.ScoreCalculators
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 },
-                        new Answer() { Value = "2", Description = "Ich weiß es nicht", Score = 1 }
+                        new Answer() { Value = "1", Description = "Nein", Score = 0 },
+                        new Answer() { Value = "2", Description = "Ich weiß es nicht", Score = 0 }
                     }
                 },
                 new Question()
@@ -400,8 +408,8 @@ namespace CT.Backend.Shared.ScoreCalculators
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 },
-                        new Answer() { Value = "2", Description = "Ich weiß es nicht", Score = 1 }
+                        new Answer() { Value = "1", Description = "Nein", Score = 0 },
+                        new Answer() { Value = "2", Description = "Ich weiß es nicht", Score = 0 }
                     }
                 },
                 new Question()
@@ -411,8 +419,8 @@ namespace CT.Backend.Shared.ScoreCalculators
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 },
-                        new Answer() { Value = "2", Description = "Ich weiß es nicht", Score = 1 }
+                        new Answer() { Value = "1", Description = "Nein", Score = 0 },
+                        new Answer() { Value = "2", Description = "Ich weiß es nicht", Score = 0 }
                     }
                 },
                 new Question()
@@ -422,8 +430,8 @@ namespace CT.Backend.Shared.ScoreCalculators
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 },
-                        new Answer() { Value = "2", Description = "Ich weiß es nicht", Score = 1 }
+                        new Answer() { Value = "1", Description = "Nein", Score = 0 },
+                        new Answer() { Value = "2", Description = "Ich weiß es nicht", Score = 0 }
                     }
                 },
                 new Question()
@@ -433,7 +441,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 0 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 1 }
+                        new Answer() { Value = "1", Description = "Nein", Score = 0 }
                     }
                 },
             };

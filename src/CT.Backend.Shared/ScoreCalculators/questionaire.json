@@ -1,0 +1,868 @@
+[
+  {
+    "id": "q01",
+    "category": "personalInfo",
+    "comment": null,
+    "text": "Wie alt sind Sie?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "q01_option0",
+        "text": "Jünger als 40"
+      },
+      {
+        "id": "q01_option1",
+        "text": "40-50"
+      },
+      {
+        "id": "q01_option2",
+        "text": "51-60"
+      },
+      {
+        "id": "q01_option3",
+        "text": "61-70"
+      },
+      {
+        "id": "q01_option4",
+        "text": "71-80"
+      },
+      {
+        "id": "q01_option5",
+        "text": "Über 80"
+      }
+    ],
+    "nextQuestionMap": null
+  },
+  {
+    "id": "q02",
+    "category": "personalInfo",
+    "comment": null,
+    "text": "Wie ist Ihre aktuelle Wohnsituation?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "q02_option0",
+        "text": "Allein wohnend"
+      },
+      {
+        "id": "q02_option1",
+        "text": "Zusammen mit Familie, in einer Wohngemeinschaft oder betreuten Gemeinschaftseinrichtung"
+      }
+    ],
+    "nextQuestionMap": null
+  },
+  {
+    "id": "q03",
+    "category": "personalInfo",
+    "comment": null,
+    "text": "Sind Sie in einem der folgenden Bereiche tätig?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "q03_option0",
+        "text": "Im medizinischen Bereich"
+      },
+      {
+        "id": "q03_option1",
+        "text": "In einer Gemeinschaftseinrichtung (Schule, Kita, Universität, Heim etc.)"
+      },
+      {
+        "id": "q03_option2",
+        "text": "Nein, in keinem der genannten Bereiche"
+      }
+    ],
+    "nextQuestionMap": null
+  },
+  {
+    "id": "q04",
+    "category": "personalInfo",
+    "comment": null,
+    "text": "Rauchen Sie?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "answer_yes",
+        "text": "Ja"
+      },
+      {
+        "id": "answer_no",
+        "text": "Nein"
+      }
+    ],
+    "nextQuestionMap": null
+  },
+  {
+    "id": "q05",
+    "category": "travelling",
+    "comment": null,
+    "text": "Sind Sie in den letzten 4 Wochen verreist? (innerhalb Deutschlands oder ins Ausland)",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "answer_yes",
+        "text": "Ja"
+      },
+      {
+        "id": "answer_no",
+        "text": "Nein"
+      }
+    ],
+    "nextQuestionMap": [ "q06", "q18" ]
+  },
+  {
+    "id": "q06",
+    "category": "travelling",
+    "comment": null,
+    "text": "Haben Sie sich im Landkreis Heinsberg (Nordrhein-Westfalen) aufgehalten?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "answer_yes",
+        "text": "Ja"
+      },
+      {
+        "id": "answer_no",
+        "text": "Nein"
+      }
+    ],
+    "nextQuestionMap": [ "q42", "q07" ],
+    "scoreMap": [ 1, 0 ]
+  },
+  {
+    "id": "q42",
+    "category": "returning",
+    "comment": null,
+    "text": "An welchem Tag sind Sie von Ihrer Reise zurückgekehrt?",
+    "inputType": "date",
+    "options": null,
+    "nextQuestionMap": "q07"
+  },
+  {
+    "id": "q07",
+    "category": "travelling",
+    "comment": null,
+    "text": "Waren Sie in den letzten 4 Wochen außerhalb Deutschlands?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "answer_yes",
+        "text": "Ja"
+      },
+      {
+        "id": "answer_no",
+        "text": "Nein"
+      }
+    ],
+    "nextQuestionMap": [ "q08", "q18" ]
+  },
+  {
+    "id": "q08",
+    "category": "travelling",
+    "comment": null,
+    "text": "Waren Sie in einem der folgenden Länder?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "q08_option0",
+        "text": "Italien"
+      },
+      {
+        "id": "q08_option1",
+        "text": "Iran"
+      },
+      {
+        "id": "q08_option2",
+        "text": "China"
+      },
+      {
+        "id": "q08_option3",
+        "text": "Südkorea"
+      },
+      {
+        "id": "q08_option4",
+        "text": "Frankreich"
+      },
+      {
+        "id": "q08_option5",
+        "text": "Österreich"
+      },
+      {
+        "id": "q08_option6",
+        "text": "Spanien"
+      },
+      {
+        "id": "q08_option7",
+        "text": "USA"
+      },
+      {
+        "id": "q08_option8",
+        "text": "Ich war in keinem der genannten Länder"
+      }
+    ],
+    "nextQuestionMap": [ "q09", "q10", "q11", "q12", "q13", "q14", "q15", "q16", "q18" ],
+    "scoreMap": [ 1, 1, 0, 0, 0, 0, 0, 0, 0 ]
+  },
+  {
+    "id": "q09",
+    "category": "travelling",
+    "comment": null,
+    "text": "Italien: Waren Sie in einer der folgenden Regionen?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "q09_option0",
+        "text": "Südtirol (entspricht Provinz Bozen) in der Region Trentino-Südtirol"
+      },
+      {
+        "id": "q09_option1",
+        "text": "Region Emilia-Romagna"
+      },
+      {
+        "id": "q09_option2",
+        "text": "Region Lombardei"
+      },
+      {
+        "id": "q09_option3",
+        "text": "Stadt Vo in der Provinz Padua in der Region Venetien"
+      },
+      {
+        "id": "answer_region_no",
+        "text": "Ich war in keiner der genannten Regionen"
+      }
+    ],
+    "nextQuestionMap": "q17",
+    "scoreMap": [ 1, 1, 1, 1, 0 ]
+  },
+  {
+    "id": "q10",
+    "category": "travelling",
+    "comment": null,
+    "text": "Iran: Waren Sie in einer der folgenden Regionen?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "q10_option0",
+        "text": "Provinz Ghom"
+      },
+      {
+        "id": "q10_option1",
+        "text": "Teheran"
+      },
+      {
+        "id": "answer_region_no",
+        "text": "Ich war in keiner der genannten Regionen"
+      }
+    ],
+    "nextQuestionMap": "q17",
+    "scoreMap": [ 1, 1, 0 ]
+  },
+  {
+    "id": "q11",
+    "category": "travelling",
+    "comment": null,
+    "text": "China: Waren Sie in einer der folgenden Regionen?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "q11_option0",
+        "text": "Provinz Hubei (inkl. Stadt Wuhan)"
+      },
+      {
+        "id": "answer_region_no",
+        "text": "Ich war in keiner der genannten Regionen"
+      }
+    ],
+    "nextQuestionMap": "q17",
+    "scoreMap": [ 1, 0 ]
+  },
+  {
+    "id": "q12",
+    "category": "travelling",
+    "comment": null,
+    "text": "Südkorea: Waren Sie in einer der folgenden Regionen?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "q12_option0",
+        "text": "Provinz Gyeongsangbuk-do (Nord-Gyeongsang)"
+      },
+      {
+        "id": "answer_region_no",
+        "text": "Ich war in keiner der genannten Regionen"
+      }
+    ],
+    "nextQuestionMap": "q17",
+    "scoreMap": [ 1, 0 ]
+  },
+  {
+    "id": "q13",
+    "category": "travelling",
+    "comment": null,
+    "text": "Frankreich: Waren Sie in einer der folgenden Regionen?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "q13_option0",
+        "text": "Region Grand Est (diese Region enthält Elsass, Lothringen und Champagne-Ardenne)"
+      },
+      {
+        "id": "answer_region_no",
+        "text": "Ich war in keiner der genannten Regionen"
+      }
+    ],
+    "nextQuestionMap": "q17",
+    "scoreMap": [ 1, 0 ]
+  },
+  {
+    "id": "q14",
+    "category": "travelling",
+    "comment": null,
+    "text": "Österreich: Waren Sie in einer der folgenden Regionen?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "q14_option0",
+        "text": "Bundesland Tirol"
+      },
+      {
+        "id": "answer_region_no",
+        "text": "Ich war in keiner der genannten Regionen"
+      }
+    ],
+    "nextQuestionMap": "q17",
+    "scoreMap": [ 1, 0 ]
+  },
+  {
+    "id": "q15",
+    "category": "travelling",
+    "comment": null,
+    "text": "Spanien: Waren Sie in einer der folgenden Regionen?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "q15_option0",
+        "text": "Madrid"
+      },
+      {
+        "id": "answer_region_no",
+        "text": "Ich war in keiner der genannten Regionen"
+      }
+    ],
+    "nextQuestionMap": "q17",
+    "scoreMap": [ 1, 0 ]
+  },
+  {
+    "id": "q16",
+    "category": "travelling",
+    "comment": null,
+    "text": "USA: Waren Sie in einer der folgenden Regionen?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "q16_option0",
+        "text": "Bundesstaat New York"
+      },
+      {
+        "id": "q16_option1",
+        "text": "Bundesstaat Washington"
+      },
+      {
+        "id": "q16_option2",
+        "text": "Bundesstaat Kalifornien"
+      },
+      {
+        "id": "answer_region_no",
+        "text": "Ich war in keiner der genannten Regionen"
+      }
+    ],
+    "nextQuestionMap": "q17",
+    "scoreMap": [ 1, 1, 1, 0 ]
+  },
+  {
+    "id": "q17",
+    "category": "returning",
+    "comment": null,
+    "text": "An welchem Tag sind Sie von Ihrer Reise zurückgekehrt?",
+    "inputType": "date",
+    "options": null,
+    "nextQuestionMap": null
+  },
+  {
+    "id": "q18",
+    "category": "contact",
+    "comment": "q18_comment",
+    "text": "Hatten Sie engen Kontakt zu einem bestätigtem Fall?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "answer_yes",
+        "text": "Ja"
+      },
+      {
+        "id": "answer_no",
+        "text": "Nein"
+      }
+    ],
+    "nextQuestionMap": [ "q20", "q19" ],
+    "scoreMap": [ 1, 0 ]
+  },
+  {
+    "id": "q19",
+    "category": "contact",
+    "comment": "q19_comment",
+    "text": "Hatten Sie engen Kontakt zu einem Verdachtsfall?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "answer_yes",
+        "text": "Ja"
+      },
+      {
+        "id": "answer_no",
+        "text": "Nein"
+      }
+    ],
+    "nextQuestionMap": [ "q20", "q21" ],
+    "scoreMap": [ 1, 0 ]
+  },
+  {
+    "id": "q20",
+    "category": "contact",
+    "comment": null,
+    "text": "An welchem Tag war der letzte Kontakt?",
+    "inputType": "date",
+    "options": null,
+    "nextQuestionMap": null
+  },
+  {
+    "id": "q21",
+    "category": "symptomsMediumRisk",
+    "comment": null,
+    "text": "Hatten Sie Fieber (über 38 °C) in den letzten 24 Stunden?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "answer_yes",
+        "text": "Ja"
+      },
+      {
+        "id": "answer_no",
+        "text": "Nein"
+      }
+    ],
+    "nextQuestionMap": [ "q23", "q22" ],
+    "scoreMap": [ 1, 0 ]
+  },
+  {
+    "id": "q22",
+    "category": "symptomsMediumRisk",
+    "comment": null,
+    "text": "Hatten Sie Fieber (über 38 °C) in den letzten 4 Tagen?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "answer_yes",
+        "text": "Ja"
+      },
+      {
+        "id": "answer_no",
+        "text": "Nein"
+      }
+    ],
+    "nextQuestionMap": [ "q23", "q24" ],
+    "scoreMap": [ 1, 0 ]
+  },
+  {
+    "id": "q23",
+    "category": "symptomsMediumRisk",
+    "comment": null,
+    "text": "Wie hoch war die höchste Temperatur ca.?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "q23_option0",
+        "text": "Weniger als 38 °C"
+      },
+      {
+        "id": "q23_option1",
+        "text": "38 °C"
+      },
+      {
+        "id": "q23_option2",
+        "text": "39 °C"
+      },
+      {
+        "id": "q23_option3",
+        "text": "40 °C"
+      },
+      {
+        "id": "q23_option4",
+        "text": "41 °C"
+      },
+      {
+        "id": "q23_option5",
+        "text": "42 °C"
+      },
+      {
+        "id": "q23_option6",
+        "text": "Über 42 °C"
+      },
+      {
+        "id": "q23_option7",
+        "text": "Ich weiß es nicht"
+      }
+    ],
+    "nextQuestionMap": null
+  },
+  {
+    "id": "q24",
+    "category": "symptoms",
+    "comment": null,
+    "text": "Haben Sie Schüttelfrost?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "answer_yes",
+        "text": "Ja"
+      },
+      {
+        "id": "answer_no",
+        "text": "Nein"
+      }
+    ],
+    "nextQuestionMap": null,
+    "scoreMap": [ 1, 0 ]
+  },
+  {
+    "id": "q25",
+    "category": "symptoms",
+    "comment": null,
+    "text": "Fühlen Sie sich schlapp oder abgeschlagen?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "answer_yes",
+        "text": "Ja"
+      },
+      {
+        "id": "answer_no",
+        "text": "Nein"
+      }
+    ],
+    "nextQuestionMap": null,
+    "scoreMap": [ 1, 0 ]
+  },
+  {
+    "id": "q26",
+    "category": "symptoms",
+    "comment": null,
+    "text": "Haben Sie Gliederschmerzen?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "answer_yes",
+        "text": "Ja"
+      },
+      {
+        "id": "answer_no",
+        "text": "Nein"
+      }
+    ],
+    "nextQuestionMap": null,
+    "scoreMap": [ 1, 0 ]
+  },
+  {
+    "id": "q27",
+    "category": "symptomsMediumRisk",
+    "comment": null,
+    "text": "Haben Sie anhaltenden Husten?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "answer_yes",
+        "text": "Ja"
+      },
+      {
+        "id": "answer_no",
+        "text": "Nein"
+      }
+    ],
+    "nextQuestionMap": null,
+    "scoreMap": [ 1, 0 ]
+  },
+  {
+    "id": "q28",
+    "category": "symptoms",
+    "comment": null,
+    "text": "Haben Sie Schnupfen?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "answer_yes",
+        "text": "Ja"
+      },
+      {
+        "id": "answer_no",
+        "text": "Nein"
+      }
+    ],
+    "scoreMap": [ 1, 0 ]
+  },
+  {
+    "id": "q29",
+    "category": "symptoms",
+    "comment": null,
+    "text": "Haben Sie Durchfall?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "answer_yes",
+        "text": "Ja"
+      },
+      {
+        "id": "answer_no",
+        "text": "Nein"
+      }
+    ],
+    "nextQuestionMap": null,
+    "scoreMap": [ 1, 0 ]
+  },
+  {
+    "id": "q30",
+    "category": "symptoms",
+    "comment": null,
+    "text": "Haben Sie Halsschmerzen?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "answer_yes",
+        "text": "Ja"
+      },
+      {
+        "id": "answer_no",
+        "text": "Nein"
+      }
+    ],
+    "nextQuestionMap": null,
+    "scoreMap": [ 1, 0 ]
+  },
+  {
+    "id": "q31",
+    "category": "symptoms",
+    "comment": null,
+    "text": "Haben Sie Kopfschmerzen?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "answer_yes",
+        "text": "Ja"
+      },
+      {
+        "id": "answer_no",
+        "text": "Nein"
+      }
+    ],
+    "nextQuestionMap": null,
+    "scoreMap": [ 1, 0 ]
+  },
+  {
+    "id": "q32",
+    "category": "symptomsHighRisk",
+    "comment": null,
+    "text": "Sind Sie schneller außer Atem als sonst?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "answer_yes",
+        "text": "Ja"
+      },
+      {
+        "id": "answer_no",
+        "text": "Nein"
+      }
+    ],
+    "nextQuestionMap": null,
+    "scoreMap": [ 1, 0 ]
+  },
+  {
+    "id": "q33",
+    "category": "symptoms",
+    "comment": null,
+    "text": "Seit wann haben Sie die Symptome?",
+    "inputType": "date",
+    "options": null,
+    "nextQuestionMap": null
+  },
+  {
+    "id": "q34",
+    "category": "illnesses",
+    "comment": null,
+    "text": "Wurde bei Ihnen eine chronische Lungenerkrankung diagnostiziert?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "answer_yes",
+        "text": "Ja"
+      },
+      {
+        "id": "answer_no",
+        "text": "Nein"
+      },
+      {
+        "id": "answer_unknown",
+        "text": "Ich weiß es nicht"
+      }
+    ],
+    "nextQuestionMap": null
+  },
+  {
+    "id": "q35",
+    "category": "illnesses",
+    "comment": null,
+    "text": "Haben Sie Diabetes?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "answer_yes",
+        "text": "Ja"
+      },
+      {
+        "id": "answer_no",
+        "text": "Nein"
+      },
+      {
+        "id": "answer_unknown",
+        "text": "Ich weiß es nicht"
+      }
+    ],
+    "nextQuestionMap": null
+  },
+  {
+    "id": "q36",
+    "category": "illnesses",
+    "comment": null,
+    "text": "Wurde bei Ihnen eine Herzerkrankung diagnostiziert?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "answer_yes",
+        "text": "Ja"
+      },
+      {
+        "id": "answer_no",
+        "text": "Nein"
+      },
+      {
+        "id": "answer_unknown",
+        "text": "Ich weiß es nicht"
+      }
+    ],
+    "nextQuestionMap": null
+  },
+  {
+    "id": "q37",
+    "category": "illnesses",
+    "comment": null,
+    "text": "Wurde bei Ihnen Adipositas (Fettsucht) diagnostiziert?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "answer_yes",
+        "text": "Ja"
+      },
+      {
+        "id": "answer_no",
+        "text": "Nein"
+      },
+      {
+        "id": "answer_unknown",
+        "text": "Ich weiß es nicht"
+      }
+    ],
+    "nextQuestionMap": null
+  },
+  {
+    "id": "q38",
+    "category": "pregnancy",
+    "comment": null,
+    "text": "Sind Sie schwanger?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "answer_yes",
+        "text": "Ja"
+      },
+      {
+        "id": "answer_no",
+        "text": "Nein"
+      },
+      {
+        "id": "answer_unknown",
+        "text": "Ich weiß es nicht"
+      }
+    ],
+    "nextQuestionMap": null
+  },
+  {
+    "id": "q39",
+    "category": "medication",
+    "comment": null,
+    "text": "Nehmen Sie aktuell Cortison ein (in Tablettenform)?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "answer_yes",
+        "text": "Ja"
+      },
+      {
+        "id": "answer_no",
+        "text": "Nein"
+      },
+      {
+        "id": "answer_unknown",
+        "text": "Ich weiß es nicht"
+      }
+    ],
+    "nextQuestionMap": null
+  },
+  {
+    "id": "q40",
+    "category": "medication",
+    "comment": "q40_comment",
+    "text": "Nehmen Sie aktuell Immunsuppressiva?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "answer_yes",
+        "text": "Ja"
+      },
+      {
+        "id": "answer_no",
+        "text": "Nein"
+      },
+      {
+        "id": "answer_unknown",
+        "text": "Ich weiß es nicht"
+      }
+    ],
+    "nextQuestionMap": null
+  },
+  {
+    "id": "q41",
+    "category": "medication",
+    "comment": null,
+    "text": "Haben Sie sich im Zeitraum von Oktober 2019 bis heute gegen Grippe impfen lassen?",
+    "inputType": "radio",
+    "options": [
+      {
+        "id": "answer_yes",
+        "text": "Ja"
+      },
+      {
+        "id": "answer_no",
+        "text": "Nein"
+      }
+    ],
+    "nextQuestionMap": null
+  }
+]

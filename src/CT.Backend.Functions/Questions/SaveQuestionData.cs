@@ -1,5 +1,3 @@
-using System;
-using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -30,8 +28,7 @@ namespace CT.Backend.Functions
             log.LogInformation("Try to add a new question.");
             QuestionData questionsToSave = null;
             try
-            {
-                
+            {                
                 questionsToSave = await System.Text.Json.JsonSerializer.DeserializeAsync<QuestionData>(req.Body,
                     new JsonSerializerOptions()
                     {
@@ -44,6 +41,7 @@ namespace CT.Backend.Functions
             {
                 return new BadRequestObjectResult($"There was an error in the provided json: {ex.Message} -> {ex.InnerException.Message}");                
             }            
+
             questionsToSave.Source = "covapp.charite";
             await outputTable.CreateDatabaseIfNotExistsAsync(new Database() { Id = "QuestionsData" });
             await outputTable.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("QuestionsData"), new DocumentCollection() { 
@@ -63,7 +61,6 @@ namespace CT.Backend.Functions
             await outputTable.CreateDocumentAsync("dbs/QuestionsData/colls/QuestionsData", questionsToSave);
             await outputQueue.AddAsync(questionsToSave.GetIdentifier());
             return new OkObjectResult(questionsToSave.Token);
-
-        }        
+        }
     }
 }

@@ -43,8 +43,8 @@ namespace CT.Backend.Functions
             {
                 return new BadRequestObjectResult($"The token wasn't found: {data.Token}");
             }
-            var result = await query.ExecuteNextAsync();
-            var userData = result.First() as QuestionData;
+            var result = await query.ExecuteNextAsync<QuestionData>();
+            var userData = result.First();
             return new OkObjectResult(userData);
         }
 

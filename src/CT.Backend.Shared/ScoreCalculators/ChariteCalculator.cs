@@ -34,14 +34,22 @@ namespace CT.Backend.Shared.ScoreCalculators
 
         public int Calculate(IEnumerable<IDictionary<string, string>> Answers)
         {
-            return Answers
-                .Select(a => 
-                    Questions.First(q => 
-                        q.Id == a.First().Key)
-                    .PossibleAnswers.First(p => 
-                        p.Value == a.First().Value)
-                    .Score)
-                .Sum();
+            var sum = 0;
+            foreach (var answer in Answers)
+            {
+                var theQuestion = Questions.FirstOrDefault(q => q.Id == answer.First().Key);
+                if(theQuestion == null)
+                {
+                    sum = 0;
+                }
+                else
+                {
+                    sum += theQuestion.PossibleAnswers.First(p =>
+                    p.Value == answer.First().Value).Score;
+                }
+                
+            }
+            return sum;
         }
     }
 }

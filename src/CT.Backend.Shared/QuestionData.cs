@@ -1,4 +1,5 @@
-﻿using Microsoft.WindowsAzure.Storage;
+﻿using Microsoft.Azure.Documents;
+using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Table;
 using System;
 using System.Collections.Generic;
@@ -6,21 +7,22 @@ using System.Linq;
 
 namespace CT.Backend.Shared
 {
-    public class QuestionData: TableEntity
+    public class QuestionData
     {
         public QuestionData() : this(GenerateToken()) { }
         public QuestionData(string RowKey)
         {
-            this.RowKey = RowKey;
+            this.Token = RowKey;
         }
+        public Guid Id { get; set; }
         /// <summary>
         /// The source system of the data
         /// </summary>
-        public new string PartitionKey { get { return base.PartitionKey; } set { base.PartitionKey = value; } }
+        public  string Source { get; set; }
         /// <summary>
         /// The token of the question data
         /// </summary>
-        public new string RowKey { get { return base.RowKey; } set { base.RowKey = value; } }
+        public new string Token { get; set; }
         /// <summary>
         /// The answered questions
         /// </summary>
@@ -32,7 +34,7 @@ namespace CT.Backend.Shared
 
         public KeyValuePair<string, string> GetIdentifier()
         {
-            return new KeyValuePair<string, string>(PartitionKey, RowKey);
+            return new KeyValuePair<string, string>(Source, Token);
         }
 
         private static string GenerateToken()

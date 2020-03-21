@@ -9,6 +9,9 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using CT.Backend.Shared;
 using Microsoft.WindowsAzure.Storage.Table;
+using Microsoft.Azure.Documents.Client;
+using Microsoft.Azure.Documents.Linq;
+using System.Linq;
 
 namespace CT.Backend.Functions
 {
@@ -17,7 +20,10 @@ namespace CT.Backend.Functions
         [FunctionName("GetDataFromToken")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
-            [Table("QuestionsData")] CloudTable outputTable,
+            [CosmosDB(
+                databaseName: "QuestionsData",
+                collectionName: "QuestionsData",
+                ConnectionStringSetting = "CosmosDBConnection")] DocumentClient outputTable,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
@@ -29,15 +35,16 @@ namespace CT.Backend.Functions
             {
                 return new BadRequestObjectResult("You need a token to retrive data.");
             }
-
-            var retriveOperation = TableOperation.Retrieve<QuestionData>("covapp.charite", data.Token);
-            var result = await outputTable.ExecuteAsync(retriveOperation);
-            var userData = result.Result as QuestionData;
-            if (userData == null)
+            Uri collectionUri = UriFactory.CreateDocumentCollectionUri("QuestionsData", "QuestionsData");
+            IDocumentQuery<QuestionData> query = outputTable.CreateDocumentQuery<QuestionData>(collectionUri)
+                .Where(p => p.Source == "covapp.charite" && p.Token == data.Token)
+                .AsDocumentQuery();
+            if (!query.HasMoreResults)
             {
-                return new BadRequestObjectResult("The provided token was not valid!");
+                return new BadRequestObjectResult($"The token wasn't found: {data.Token}");
             }
-
+            var result = await query.ExecuteNextAsync();
+            var userData = result.First() as QuestionData;
             return new OkObjectResult(userData);
         }
 

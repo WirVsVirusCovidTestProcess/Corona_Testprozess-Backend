@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using System.Text.Json;
 using CT.Backend.Shared;
 using System.Collections.Generic;
+using Microsoft.Azure.Documents.Client;
 
 namespace CT.Backend.Functions
 {
@@ -17,7 +18,10 @@ namespace CT.Backend.Functions
         [FunctionName("SaveQuestionData")]                
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
-            [Table("QuestionsData")] IAsyncCollector<QuestionData> outputTable,
+            [CosmosDB(
+                databaseName: "QuestionsData",
+                collectionName: "QuestionsData",
+                ConnectionStringSetting = "CosmosDBConnection")] DocumentClient outputTable,
             [Queue("NewQuestionsData")] IAsyncCollector<KeyValuePair<string, string>> outputQueue,
             ILogger log)
         {
@@ -38,10 +42,10 @@ namespace CT.Backend.Functions
             {
                 return new BadRequestObjectResult($"There was an error in the provided json: {ex.Message} -> {ex.InnerException.Message}");                
             }            
-            questionsToSave.PartitionKey = "covapp.charite";
-            await outputTable.AddAsync(questionsToSave);
+            questionsToSave.Source = "covapp.charite";
+            await outputTable.CreateDocumentAsync("dbs/QuestionsData/colls/QuestionsData", questionsToSave);
             await outputQueue.AddAsync(questionsToSave.GetIdentifier());
-            return new OkObjectResult(questionsToSave.RowKey);
+            return new OkObjectResult(questionsToSave.Token);
 
         }        
     }

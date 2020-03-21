@@ -114,7 +114,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "Italien: Waren Sie in einer der folgenden Regionen?",
-                    Id = "J",
+                    Id = "H1",
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Südtirol (entspricht Provinz Bozen) in der Region Trentino-Südtirol", Score = 1 },
@@ -127,7 +127,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "Iran: Waren Sie in einer der folgenden Regionen?",
-                    Id = "K",
+                    Id = "H2",
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Provinz Ghom", Score = 1 },
@@ -138,7 +138,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "China: Waren Sie in einer der folgenden Regionen?",
-                    Id = "K",
+                    Id = "H3",
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Provinz Hubei (inkl. Stadt Wuhan)", Score = 1 },
@@ -148,7 +148,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "Südkorea: Waren Sie in einer der folgenden Regionen?",
-                    Id = "L",
+                    Id = "H4",
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Provinz Gyeongsangbuk-do (Nord-Gyeongsang)", Score = 1 },
@@ -158,7 +158,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "Frankreich: Waren Sie in einer der folgenden Regionen?",
-                    Id = "M",
+                    Id = "H5",
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Region Grand Est (diese Region enthält Elsass, Lothringen und Champagne-Ardenne)", Score = 1 },
@@ -168,7 +168,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "Österreich: Waren Sie in einer der folgenden Regionen?",
-                    Id = "N",
+                    Id = "H6",
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Bundesland Tirol", Score = 1 },
@@ -178,7 +178,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "Spanien: Waren Sie in einer der folgenden Regionen?",
-                    Id = "O",
+                    Id = "H7",
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Madrid", Score = 1 },
@@ -188,7 +188,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "USA: Waren Sie in einer der folgenden Regionen?",
-                    Id = "P",
+                    Id = "H8",
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Bundesstaat New York", Score = 1 },
@@ -200,7 +200,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "An welchem Tag sind Sie von Ihrer Reise zurückgekehrt?",
-                    Id = "Q",
+                    Id = "H9",
                     PossibleAnswers = new List<Answer>()
                     {
                     }
@@ -208,7 +208,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "Hatten Sie engen Kontakt zu einem bestätigtem Fall?",
-                    Id = "R",
+                    Id = "Q",
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 1 },
@@ -218,7 +218,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "An welchem Tag war der letzte Kontakt?",
-                    Id = "S",
+                    Id = "B8",
                     PossibleAnswers = new List<Answer>()
                     {
                     }
@@ -236,7 +236,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "Hatten Sie Fieber (über 38 °C) in den letzten 4 Tagen?",
-                    Id = "T",
+                    Id = "T1",
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 1 },
@@ -246,7 +246,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "Wie hoch war die höchste Temperatur ca.?",
-                    Id = "U",
+                    Id = "V",
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Weniger als 38 °C", Score = 0 },
@@ -262,16 +262,6 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "Haben Sie Schüttelfrost?",
-                    Id = "V",
-                    PossibleAnswers = new List<Answer>()
-                    {
-                        new Answer() { Value = "0", Description = "Ja", Score = 1 },
-                        new Answer() { Value = "1", Description = "Nein", Score = 0 }
-                    }
-                },
-                new Question()
-                {
-                    Description = "Fühlen Sie sich schlapp oder abgeschlagen?",
                     Id = "W",
                     PossibleAnswers = new List<Answer>()
                     {
@@ -281,7 +271,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 },
                 new Question()
                 {
-                    Description = "Haben Sie Gliederschmerzen?",
+                    Description = "Fühlen Sie sich schlapp oder abgeschlagen?",
                     Id = "X",
                     PossibleAnswers = new List<Answer>()
                     {
@@ -291,7 +281,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 },
                 new Question()
                 {
-                    Description = "Haben Sie anhaltenden Husten?",
+                    Description = "Haben Sie Gliederschmerzen?",
                     Id = "Y",
                     PossibleAnswers = new List<Answer>()
                     {
@@ -301,7 +291,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 },
                 new Question()
                 {
-                    Description = "Haben Sie Schnupfen?",
+                    Description = "Haben Sie anhaltenden Husten?",
                     Id = "Z",
                     PossibleAnswers = new List<Answer>()
                     {
@@ -311,8 +301,18 @@ namespace CT.Backend.Shared.ScoreCalculators
                 },
                 new Question()
                 {
+                    Description = "Haben Sie Schnupfen?",
+                    Id = "A0",
+                    PossibleAnswers = new List<Answer>()
+                    {
+                        new Answer() { Value = "0", Description = "Ja", Score = 1 },
+                        new Answer() { Value = "1", Description = "Nein", Score = 0 }
+                    }
+                },
+                new Question()
+                {
                     Description = "Haben Sie Durchfall?",
-                    Id = "AA",
+                    Id = "A1",
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 1 },
@@ -322,7 +322,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "Haben Sie Halsschmerzen?",
-                    Id = "AB",
+                    Id = "A2",
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 0 },
@@ -332,7 +332,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "Haben Sie Kopfschmerzen?",
-                    Id = "AC",
+                    Id = "A3",
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 1 },
@@ -342,7 +342,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "Sind Sie schneller außer Atem als sonst?",
-                    Id = "AD",
+                    Id = "B7",
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 1 },
@@ -352,7 +352,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "Seit wann haben Sie die Symptome?",
-                    Id = "AE",
+                    Id = "B9",
                     PossibleAnswers = new List<Answer>()
                     {
                     }
@@ -360,7 +360,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "Wurde bei Ihnen eine chronische Lungenerkrankung diagnostiziert?",
-                    Id = "AF",
+                    Id = "A5",
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 0 },
@@ -371,7 +371,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "Haben Sie Diabetes?",
-                    Id = "AG",
+                    Id = "A6",
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 0 },
@@ -382,7 +382,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "Wurde bei Ihnen eine Herzerkrankung diagnostiziert?",
-                    Id = "AH",
+                    Id = "A7",
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 0 },
@@ -393,7 +393,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "Wurde bei Ihnen Adipositas (Fettsucht) diagnostiziert?",
-                    Id = "AI",
+                    Id = "A8",
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 0 },
@@ -404,7 +404,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "Sind Sie schwanger?",
-                    Id = "AJ",
+                    Id = "A9",
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 0 },
@@ -415,7 +415,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "Nehmen Sie aktuell Cortison ein (in Tablettenform)?",
-                    Id = "AK",
+                    Id = "B0",
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 0 },
@@ -426,7 +426,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "Nehmen Sie aktuell Immunsuppressiva?",
-                    Id = "AL",
+                    Id = "B1",
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 0 },
@@ -437,7 +437,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "Haben Sie sich im Zeitraum von Oktober 2019 bis heute gegen Grippe impfen lassen?",
-                    Id = "AM",
+                    Id = "B2",
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 0 },

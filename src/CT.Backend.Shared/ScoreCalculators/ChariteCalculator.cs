@@ -34,8 +34,16 @@ namespace CT.Backend.Shared.ScoreCalculators
                 }
                 else
                 {
-                    sum += theQuestion.PossibleAnswers.First(p =>
-                    p.Value == answer.First().Value).Score;
+                    DateTime dateValue;
+                    if (DateTime.TryParse(answer.First().Value, out dateValue))
+                    {
+                        sum += DateTime.Now.Subtract(dateValue).Days;
+                    }
+                    else
+                    {
+                        sum += theQuestion.PossibleAnswers.First(p =>
+                            p.Value == answer.First().Value).Score;
+                    }
                 }
 
             }

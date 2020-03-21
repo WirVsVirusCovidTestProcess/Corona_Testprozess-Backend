@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using CT.Backend.Shared.ScoreCalculators;
 using FluentAssertions;
@@ -50,6 +51,42 @@ namespace CT.Backend.Shered_Tests.ChariteCalculatorTests
             var target = new ChariteCalculator();
             var actual = target.Calculate(answers);
             actual.Should().Be(0);
+        }
+
+        [TestMethod]
+        public void DateValue3DaysBeforeToday_Results3()
+        {
+            var answers = new List<Dictionary<string, string>>()
+            {
+                new Dictionary<string, string>()
+                {
+                    {"A", DateTime.Now.AddDays(-3).ToString("dd.MM.yyy")}
+                }
+            };
+
+            var target = new ChariteCalculator();
+            var actual = target.Calculate(answers);
+            actual.Should().Be(3);
+        }
+
+        [TestMethod]
+        public void DateValueMultipleChoiceMixed_Results5()
+        {
+            var answers = new List<Dictionary<string, string>>()
+            {
+                new Dictionary<string, string>()
+                {
+                    {"A", "2"}
+                },
+                new Dictionary<string, string>()
+                {
+                    {"B",  DateTime.Now.AddDays(-3).ToString("dd.MM.yyy")}
+                }
+            };
+
+            var target = new ChariteCalculator();
+            var actual = target.Calculate(answers);
+            actual.Should().Be(5);
         }
 
         [TestMethod]

@@ -79,7 +79,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "An welchem Tag sind Sie von Ihrer Reise zurückgekehrt?",
-                    Id = "G",
+                    Id = "R1",
                     PossibleAnswers = new List<Answer>()
                     {
                         //ToDo: Here we need an answer providing a date
@@ -90,7 +90,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "Waren Sie in den letzten 4 Wochen außerhalb Deutschlands?",
-                    Id = "H",
+                    Id = "G",
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Ja", Score = 0 },
@@ -100,7 +100,7 @@ namespace CT.Backend.Shared.ScoreCalculators
                 new Question()
                 {
                     Description = "Waren Sie in einem der folgenden Länder?",
-                    Id = "I",
+                    Id = "H",
                     PossibleAnswers = new List<Answer>()
                     {
                         new Answer() { Value = "0", Description = "Italien", Score = 0 },
@@ -108,10 +108,10 @@ namespace CT.Backend.Shared.ScoreCalculators
                         new Answer() { Value = "2", Description = "China", Score = 2 },
                         new Answer() { Value = "3", Description = "Südkorea", Score = 3 },
                         new Answer() { Value = "4", Description = "Frankreich", Score = 4 },
-                        new Answer() { Value = "4", Description = "Österreich", Score = 4 },
-                        new Answer() { Value = "4", Description = "Spanien", Score = 4 },
-                        new Answer() { Value = "4", Description = "USA", Score = 4 },
-                        new Answer() { Value = "5", Description = "Ich war in keinem der genannten Länder", Score = 5 }
+                        new Answer() { Value = "5", Description = "Österreich", Score = 4 },
+                        new Answer() { Value = "6", Description = "Spanien", Score = 4 },
+                        new Answer() { Value = "7", Description = "USA", Score = 4 },
+                        new Answer() { Value = "8", Description = "Ich war in keinem der genannten Länder", Score = 5 }
                     }
                 },
                 new Question()

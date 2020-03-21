@@ -11,7 +11,7 @@ using CT.Backend.Shared;
 using System.Collections.Generic;
 using Microsoft.Azure.Documents.Client;
 using Microsoft.Azure.Documents;
-using Microsoft.VisualBasic;
+using System.Collections.ObjectModel;
 
 namespace CT.Backend.Functions
 {
@@ -46,7 +46,20 @@ namespace CT.Backend.Functions
             }            
             questionsToSave.Source = "covapp.charite";
             await outputTable.CreateDatabaseIfNotExistsAsync(new Database() { Id = "QuestionsData" });
-            await outputTable.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("QuestionsData"), new DocumentCollection() { Id = "QuestionsData" });
+            await outputTable.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("QuestionsData"), new DocumentCollection() { 
+                Id = "QuestionsData", 
+                PartitionKey = new PartitionKeyDefinition() { 
+                    Paths = new Collection<string>() { "/Source" } 
+                },
+                UniqueKeyPolicy = new UniqueKeyPolicy()
+                {
+                    UniqueKeys = new Collection<UniqueKey>() { 
+                        new UniqueKey() { 
+                            Paths = new Collection<string>() { "/Token"} 
+                        } 
+                    }
+                }
+            });
             await outputTable.CreateDocumentAsync("dbs/QuestionsData/colls/QuestionsData", questionsToSave);
             await outputQueue.AddAsync(questionsToSave.GetIdentifier());
             return new OkObjectResult(questionsToSave.Token);

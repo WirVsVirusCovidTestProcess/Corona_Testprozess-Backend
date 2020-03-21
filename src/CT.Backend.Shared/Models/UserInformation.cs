@@ -21,6 +21,7 @@ namespace CT.Backend.Shared.Models
         public string Email { get; set; }        
         public int? RiskScore { get; set; }
         public int Location { get; set; }
+        public string AppointmentToken { get; set; }
         public KeyValuePair<string, string> GetIdentifier()
         {
             return new KeyValuePair<string, string>(Source, Token);

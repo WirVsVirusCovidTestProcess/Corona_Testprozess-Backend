@@ -21,6 +21,7 @@ namespace CT.Backend.Shared.ViewModel
             RiskScore = baseModel.RiskScore;
             Source = baseModel.Source;
             Token = baseModel.Token;
+            AppointmentToken = baseModel.AppointmentToken;
         }
         public string QuestionToken { get; set; }
         public new int? RiskScore {get;}

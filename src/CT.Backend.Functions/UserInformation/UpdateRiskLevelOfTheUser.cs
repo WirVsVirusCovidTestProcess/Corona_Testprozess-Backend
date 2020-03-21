@@ -26,7 +26,7 @@ namespace CT.Backend.Functions.UserInformation
             [CosmosDB(
                 databaseName: "UserInformation",
                 collectionName: "UserInformation",
-                ConnectionStringSetting = "QuestionsDBConnection")] DocumentClient usersTable,
+                ConnectionStringSetting = "UserInformationDBConnection")] DocumentClient usersTable,
             ILogger log)
         {
             log.LogInformation("Start updating riskinformation.");
@@ -51,7 +51,7 @@ namespace CT.Backend.Functions.UserInformation
             IDocumentQuery<QuestionData> questionsQuery = questionsTable.CreateDocumentQuery<QuestionData>(questionsCollectionUri, new FeedOptions() { EnableCrossPartitionQuery = true })
                 .Where(p => p.Token == tokens.QuestionToken)
                 .AsDocumentQuery<QuestionData>();
-            IDocumentQuery<Shared.Models.UserInformation> userQuery = questionsTable.CreateDocumentQuery<Shared.Models.UserInformation>(userCollectionUri, new FeedOptions() { EnableCrossPartitionQuery = true })
+            IDocumentQuery<Shared.Models.UserInformation> userQuery = usersTable.CreateDocumentQuery<Shared.Models.UserInformation>(userCollectionUri, new FeedOptions() { EnableCrossPartitionQuery = true })
                 .Where(p => p.Token == tokens.UserToken)
                 .AsDocumentQuery<Shared.Models.UserInformation>();
             if (!questionsQuery.HasMoreResults)

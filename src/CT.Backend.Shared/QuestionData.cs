@@ -20,7 +20,7 @@ namespace CT.Backend.Shared
         /// <summary>
         /// The token of the question data
         /// </summary>
-        public new string Token { get; set; }
+        public string Token { get; set; }
         /// <summary>
         /// The answered questions
         /// </summary>

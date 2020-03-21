@@ -20,7 +20,7 @@ namespace CT.Backend.Shared.Models
         public string LastName { get; set; }
         public string Email { get; set; }        
         public int? RiskScore { get; set; }
-        public int Location { get; set; }
+        public string Location { get; set; }
         public string AppointmentToken { get; set; }
         public KeyValuePair<string, string> GetIdentifier()
         {

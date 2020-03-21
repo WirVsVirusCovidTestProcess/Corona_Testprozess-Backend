@@ -23,7 +23,7 @@ namespace CT.Backend.Functions
             [CosmosDB(
                 databaseName: "QuestionsData",
                 collectionName: "QuestionsData",
-                ConnectionStringSetting = "CosmosDBConnection")] DocumentClient outputTable,
+                ConnectionStringSetting = "QuestionsDBConnection")] DocumentClient outputTable,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");

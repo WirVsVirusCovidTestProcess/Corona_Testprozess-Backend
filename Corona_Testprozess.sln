@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29911.98
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CT.Backend.Functions", "src\CT.Backend.Functions\CT.Backend.Functions.csproj", "{49A41EE3-804C-4691-BC3F-7EED22309AB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CT.Backend.Functions", "src\CT.Backend.Functions\CT.Backend.Functions.csproj", "{49A41EE3-804C-4691-BC3F-7EED22309AB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CT.Backend.Shared", "src\CT.Backend.Shared\CT.Backend.Shared.csproj", "{46CB38A9-9FF7-4213-94F0-67FEE5D95E1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CT.Backend.Shared", "src\CT.Backend.Shared\CT.Backend.Shared.csproj", "{46CB38A9-9FF7-4213-94F0-67FEE5D95E1C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CT.Backend.Shared_Tests", "src\CT.Backend.Shared_Tests\CT.Backend.Shared_Tests.csproj", "{DF6AE6D1-3BD0-48C5-9AD9-A5AD96599958}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,18 @@ Global
 		{46CB38A9-9FF7-4213-94F0-67FEE5D95E1C}.Release|x64.Build.0 = Release|Any CPU
 		{46CB38A9-9FF7-4213-94F0-67FEE5D95E1C}.Release|x86.ActiveCfg = Release|Any CPU
 		{46CB38A9-9FF7-4213-94F0-67FEE5D95E1C}.Release|x86.Build.0 = Release|Any CPU
+		{DF6AE6D1-3BD0-48C5-9AD9-A5AD96599958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF6AE6D1-3BD0-48C5-9AD9-A5AD96599958}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF6AE6D1-3BD0-48C5-9AD9-A5AD96599958}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DF6AE6D1-3BD0-48C5-9AD9-A5AD96599958}.Debug|x64.Build.0 = Debug|Any CPU
+		{DF6AE6D1-3BD0-48C5-9AD9-A5AD96599958}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DF6AE6D1-3BD0-48C5-9AD9-A5AD96599958}.Debug|x86.Build.0 = Debug|Any CPU
+		{DF6AE6D1-3BD0-48C5-9AD9-A5AD96599958}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF6AE6D1-3BD0-48C5-9AD9-A5AD96599958}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF6AE6D1-3BD0-48C5-9AD9-A5AD96599958}.Release|x64.ActiveCfg = Release|Any CPU
+		{DF6AE6D1-3BD0-48C5-9AD9-A5AD96599958}.Release|x64.Build.0 = Release|Any CPU
+		{DF6AE6D1-3BD0-48C5-9AD9-A5AD96599958}.Release|x86.ActiveCfg = Release|Any CPU
+		{DF6AE6D1-3BD0-48C5-9AD9-A5AD96599958}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

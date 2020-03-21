@@ -4,12 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using CT.Backend.Shared;
 using CT.Backend.Shared.ScoreCalculators;
-using Microsoft.Azure.Documents;
 using Microsoft.Azure.Documents.Client;
 using Microsoft.Azure.Documents.Linq;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
-using Microsoft.WindowsAzure.Storage.Table;
 
 namespace CT.Backend.Functions
 {
@@ -21,7 +19,7 @@ namespace CT.Backend.Functions
             [CosmosDB(
                 databaseName: "QuestionsData",
                 collectionName: "QuestionsData",
-                ConnectionStringSetting = "CosmosDBConnection")] DocumentClient outputTable,
+                ConnectionStringSetting = "QuestionsDBConnection")] DocumentClient outputTable,
             ILogger log)
         {
             Uri collectionUri = UriFactory.CreateDocumentCollectionUri("QuestionsData", "QuestionsData");
@@ -37,8 +35,7 @@ namespace CT.Backend.Functions
             log.LogInformation($"Start calculation of riskscore of {data.Token}");
             data.RiskScore = new ChariteCalculator().Calculate(data.Answers);
             log.LogInformation($"Update riskscore of {data.Token} to {data.RiskScore}");
-            await outputTable.ReplaceDocumentAsync(UriFactory.CreateDocumentUri("QuestionsData", "QuestionsData", data.Id.ToString()), data );
-      
+            await outputTable.ReplaceDocumentAsync(UriFactory.CreateDocumentUri("QuestionsData", "QuestionsData", data.Id), data );      
         }
     }
 }

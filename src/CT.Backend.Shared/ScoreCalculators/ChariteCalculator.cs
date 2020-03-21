@@ -32,6 +32,11 @@ namespace CT.Backend.Shared.ScoreCalculators
             }
         } ; set => throw new NotImplementedException(); }
 
+        /// <summary>
+        /// Calculate a risk store.
+        /// </summary>
+        /// <param name="Answers">The answers from the user.</param>
+        /// <returns></returns>
         public int Calculate(IEnumerable<IDictionary<string, string>> Answers)
         {
             var sum = 0;

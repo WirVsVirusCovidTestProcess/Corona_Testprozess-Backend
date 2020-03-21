@@ -1,7 +1,4 @@
-﻿using Microsoft.Azure.Documents;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Table;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -14,7 +11,8 @@ namespace CT.Backend.Shared
         {
             this.Token = RowKey;
         }
-        public Guid Id { get; set; }
+        [Newtonsoft.Json.JsonProperty("id")]
+        public string Id { get; set; }
         /// <summary>
         /// The source system of the data
         /// </summary>

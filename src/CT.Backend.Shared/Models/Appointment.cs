@@ -9,7 +9,7 @@ namespace CT.Backend.Shared.Models
     {
         public Appointment()
         {
-            TokenGenerator.GenerateToken();
+            Token = TokenGenerator.GenerateToken();
         }
         [JsonProperty("id")]
         public string Id { get; set; }

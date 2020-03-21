@@ -31,7 +31,6 @@ namespace CT.Backend.Functions.Testcenters
                     new JsonSerializerOptions()
                     {
                         AllowTrailingCommas = true,
-
                     }
                 );
             }

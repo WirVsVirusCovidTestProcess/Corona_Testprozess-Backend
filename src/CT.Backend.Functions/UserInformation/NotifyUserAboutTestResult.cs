@@ -34,6 +34,7 @@ namespace CT.Backend.Functions.UserInformation
                     .AsDocumentQuery<Shared.Models.UserInformation>();
                 var result = await userQuery.ExecuteNextAsync<Shared.Models.UserInformation>();
                 var userToInform = result.First();
+
                 log.LogInformation($"Here we send mails to {userToInform.Email}"); // TODO: replace this with the sendgrid integration
             }
         }

@@ -6,7 +6,7 @@ namespace CT.Backend.Shared
 {
     public class QuestionData
     {
-        public QuestionData() : this(GenerateToken()) { }
+        public QuestionData() : this(TokenGenerator.GenerateToken()) { }
         public QuestionData(string RowKey)
         {
             this.Token = RowKey;
@@ -33,15 +33,6 @@ namespace CT.Backend.Shared
         public KeyValuePair<string, string> GetIdentifier()
         {
             return new KeyValuePair<string, string>(Source, Token);
-        }
-
-        private static string GenerateToken()
-        {
-            byte[] time = BitConverter.GetBytes(DateTime.UtcNow.ToBinary());
-            byte[] key = Guid.NewGuid().ToByteArray();
-            string token = Convert.ToBase64String(time.Concat(key).ToArray());
-            return token
-                .Replace("/", ""); // table storage don't like '/'
         }
     }
 }

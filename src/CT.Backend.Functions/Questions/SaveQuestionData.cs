@@ -21,7 +21,7 @@ namespace CT.Backend.Functions
             [CosmosDB(
                 databaseName: "QuestionsData",
                 collectionName: "QuestionsData",
-                ConnectionStringSetting = "CosmosDBConnection")] DocumentClient outputTable,
+                ConnectionStringSetting = "QuestionsDBConnection")] DocumentClient outputTable,
             [Queue("NewQuestionsData")] IAsyncCollector<KeyValuePair<string, string>> outputQueue,
             ILogger log)
         {

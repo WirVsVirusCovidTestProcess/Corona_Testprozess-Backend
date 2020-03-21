@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CT.Backend.Shared.Models;
+using CT.Backend.Shared;
 using Microsoft.Azure.Documents;
 using Microsoft.Azure.Documents.Client;
 using Microsoft.Azure.Documents.Linq;
@@ -35,6 +36,7 @@ namespace CT.Backend.Functions.UserInformation
                 var result = await userQuery.ExecuteNextAsync<Shared.Models.UserInformation>();
                 var userToInform = result.First();
                 log.LogInformation($"Here we send mails to {userToInform.Email}"); // TODO: replace this with the sendgrid integration
+                //string sendgridApiKey = SendGridConfigBuilder.GetConfigFromEnvVars().sendGridApiKey
             }
         }
     }

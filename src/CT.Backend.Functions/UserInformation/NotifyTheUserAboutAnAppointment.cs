@@ -42,7 +42,7 @@ namespace CT.Backend.Functions.UserInformation
                 //Mail sending process
                 var sendGridSender = new SendGridSender();
                 var response = await sendGridSender
-                    .SendMail("from@address.sample", new List<string>() { userToInform.Email }, 
+                    .SendMail("Corona_Testprozess@outlook.com", new List<string>() { userToInform.Email }, 
                     "CoronaTestPlattform - Your CoViD19 test appointment has been scheduled", 
                     $"Hi {userToInform.FirstName} </ br> your test was scheduled at the testcenter: <b> {userToInform.Location} </b>.", 
                     $"Hi {userToInform.FirstName} your test was scheduled at the testcenter: {userToInform.Location}.", 

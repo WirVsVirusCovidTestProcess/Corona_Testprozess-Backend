@@ -172,7 +172,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"FirstName\": \"Max\",\n\t\"LastName\": \"Mustermann\",\n\t\"Email\": \"max.mustermann@web.de\",\n\t\"Location\": \"63636\"\n}",
+					"raw": "{\n\t\"FirstName\": \"Max\",\n\t\"LastName\": \"Mustermann\",\n\t\"Email\": \"max.mustermann@web.de\",\n\t\"Location\": \"65510\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -233,6 +233,29 @@
 		},
 		{
 			"name": "GetAllNotAssigendAppointMents",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "222de88d-c9da-4077-916b-cb804bf30c00",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var allNotAssigendAppointments = pm.response.json();",
+							"console.log(\"result: \" + allNotAssigendAppointments);",
+							"",
+							"var firstNotAssigendAppointment = allNotAssigendAppointments[0];",
+							"",
+							"pm.environment.set(\"firstNotAssigendAppointmentId\", firstNotAssigendAppointment.id);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -270,6 +293,51 @@
 							"key": "location",
 							"value": "63636",
 							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddAnAppointmentDate",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a6f9339e-943c-492c-89b0-1cb479a2ca0e",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"id\": \"{{firstNotAssigendAppointmentId}}\",\r\n        \"dateToBeInTestcenter\": \"2020-03-24T11:00:00+01:00\",\r\n        \"testcenterAddress\": \"Klinikum Frankfurt Hoechst\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/AddAnAppointmentDate?code={{AccessCode}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"AddAnAppointmentDate"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "{{AccessCode}}"
 						}
 					]
 				}

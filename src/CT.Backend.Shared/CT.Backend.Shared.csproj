@@ -9,4 +9,10 @@
     <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="3.0.10" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="ScoreCalculators\questionaire.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

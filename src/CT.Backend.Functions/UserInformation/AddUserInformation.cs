@@ -12,6 +12,7 @@ using System.Text.Json;
 using Microsoft.Azure.Documents;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using CT.Backend.Shared;
 
 namespace CT.Backend.Functions.UserInformation
 {
@@ -28,10 +29,10 @@ namespace CT.Backend.Functions.UserInformation
             ILogger log)
         {
             log.LogInformation("Try to add a new question.");
-            Shared.Models.UserInformation questionsToSave = null;
+            Shared.Models.UserInformation userToSave = null;
             try
             {
-                questionsToSave = await System.Text.Json.JsonSerializer.DeserializeAsync<Shared.Models.UserInformation>(req.Body,
+                userToSave = await System.Text.Json.JsonSerializer.DeserializeAsync<Shared.Models.UserInformation>(req.Body,
                     new JsonSerializerOptions()
                     {
                         AllowTrailingCommas = true,
@@ -43,11 +44,12 @@ namespace CT.Backend.Functions.UserInformation
             {
                 return new BadRequestObjectResult($"There was an error in the provided json: {ex.Message} -> {ex.InnerException.Message}");
             }
-            if(questionsToSave.RiskScore != null)
+            if(userToSave.RiskScore != null)
             {
-                questionsToSave.RiskScore = null;
+                userToSave.RiskScore = null;
             }
-            questionsToSave.Source = "covapp.charite";
+            userToSave.Token = TokenGenerator.GenerateToken();
+            userToSave.Source = "covapp.charite";
             await outputTable.CreateDatabaseIfNotExistsAsync(new Database() { Id = "UserInformation" });
             await outputTable.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("UserInformation"), new DocumentCollection()
             {
@@ -65,9 +67,9 @@ namespace CT.Backend.Functions.UserInformation
                     }
                 }
             });
-            await outputTable.CreateDocumentAsync("dbs/UserInformation/colls/UserInformation", questionsToSave);
-            await outputQueue.AddAsync(questionsToSave.GetIdentifier());
-            return new OkObjectResult(questionsToSave.Token);
+            await outputTable.CreateDocumentAsync("dbs/UserInformation/colls/UserInformation", userToSave);
+            await outputQueue.AddAsync(userToSave.GetIdentifier());
+            return new OkObjectResult(userToSave.Token);
         }
     }
 }

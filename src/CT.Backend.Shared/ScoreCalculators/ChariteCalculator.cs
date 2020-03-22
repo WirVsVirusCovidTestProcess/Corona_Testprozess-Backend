@@ -39,8 +39,15 @@ namespace CT.Backend.Shared.ScoreCalculators
                     }
                     else
                     {
-                        sum += theQuestion.PossibleAnswers.First(p =>
-                            p.Value == answer.First().Value).Score;
+                       var fullAnswer = theQuestion.PossibleAnswers.FirstOrDefault(p => p.Value == answer.First().Value);
+                        if(fullAnswer == null)
+                        {   
+                            sum = 0;
+                        }
+                        else
+                        {
+                            sum += fullAnswer.Score;
+                        }
                     }
                 }
 

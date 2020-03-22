@@ -31,7 +31,7 @@ namespace CT.Backend.Functions.Testcenters
                     new JsonSerializerOptions()
                     {
                         AllowTrailingCommas = true,
-
+                        PropertyNameCaseInsensitive = true
                     }
                 );
             }
@@ -41,7 +41,7 @@ namespace CT.Backend.Functions.Testcenters
             }
             Uri questionsCollectionUri = UriFactory.CreateDocumentCollectionUri("Appointment", "AppointmentForUsers");
             var apointmentsQuery = appointments.CreateDocumentQuery<Appointment>(questionsCollectionUri, new FeedOptions() { EnableCrossPartitionQuery = true })
-                .Where(p => p.Id == appointment.Id)
+                .Where(p => p.Token == appointment.Token)
                 .AsDocumentQuery<Appointment>();
 
             if (!apointmentsQuery.HasMoreResults)

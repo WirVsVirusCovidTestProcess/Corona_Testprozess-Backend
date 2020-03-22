@@ -19,7 +19,7 @@ namespace CT.Backend.Functions.Testcenters
             databaseName: "UserInformation",
             collectionName: "UserInformation",
             ConnectionStringSetting = "UserInformationDBConnection",
-            LeaseCollectionName = "leases")]IReadOnlyList<UserInformationViewModel> UserInformation,
+            LeaseCollectionName = "leases")]IReadOnlyList<Document> UserInformation,
             [CosmosDB(
                 databaseName: "Appointment",
                 collectionName: "AppointmentForUsers",
@@ -30,18 +30,20 @@ namespace CT.Backend.Functions.Testcenters
                 ConnectionStringSetting = "UserInformationDBConnection")] DocumentClient usersTable,
             ILogger log)
         {
-            foreach (var modifiedUser in UserInformation.Where(d => d.RiskScore > 50 && string.IsNullOrWhiteSpace(d.AppointmentToken)))
+            foreach (var modifiedUser in UserInformation.Where(d => d.GetPropertyValue<int?>("RiskScore") > 0 && string.IsNullOrWhiteSpace(d.GetPropertyValue<string>("AppointmentToken"))))
             {
-                log.LogInformation($"Create appointment for user: {modifiedUser.Token}");
+                Uri userUri = UriFactory.CreateDocumentUri("UserInformation", "UserInformation", modifiedUser.Id);
+                var fulluser = await usersTable.ReadDocumentAsync<Shared.Models.UserInformation>(userUri, new RequestOptions() { PartitionKey = new PartitionKey(modifiedUser.GetPropertyValue<string>("Source"))});
+                log.LogInformation($"Create appointment for user: {fulluser.Document.Token}");
                 var appointment = new Appointment();
                 appointment.Assigend = false;
-                appointment.RiskScore = modifiedUser.RiskScore;
-                appointment.Location = modifiedUser.Location;
+                appointment.RiskScore = fulluser.Document.RiskScore;
+                appointment.Location = fulluser.Document.Location;
                 appointment.TestResult = null;
                 await notAssingedUsers.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("Appointment", "AppointmentForUsers"), appointment);
-                log.LogInformation($"Add appointment to user: {modifiedUser.Token}");
-                modifiedUser.AppointmentToken = appointment.Token;
-                await usersTable.ReplaceDocumentAsync(UriFactory.CreateDocumentUri("UserInformation", "UserInformation", modifiedUser.Id), modifiedUser);
+                log.LogInformation($"Add appointment to user: {fulluser.Document.Token}");
+                fulluser.Document.AppointmentToken = appointment.Token;
+                await usersTable.ReplaceDocumentAsync(UriFactory.CreateDocumentUri("UserInformation", "UserInformation", fulluser.Document.Id), fulluser.Document);
                 log.LogInformation($"Finish adding empty appointment");
             }
         }

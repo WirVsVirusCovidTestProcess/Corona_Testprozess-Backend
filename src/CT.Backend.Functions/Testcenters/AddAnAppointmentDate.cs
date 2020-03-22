@@ -10,6 +10,7 @@ using CT.Backend.Shared.Models;
 using System.Linq;
 using Microsoft.Azure.Documents.Linq;
 using System.Text.Json;
+using Microsoft.Azure.Documents;
 
 namespace CT.Backend.Functions.Testcenters
 {
@@ -31,7 +32,7 @@ namespace CT.Backend.Functions.Testcenters
                     new JsonSerializerOptions()
                     {
                         AllowTrailingCommas = true,
-
+                        PropertyNameCaseInsensitive = true
                     }
                 );
             }
@@ -50,11 +51,19 @@ namespace CT.Backend.Functions.Testcenters
             }
             var result = await apointmentsQuery.ExecuteNextAsync<Appointment>();
             var appointmentResult = result.First();
+            
 
             appointmentResult.TestcenterAddress = appointment.TestcenterAddress;
             appointmentResult.DateToBeInTestcenter = appointment.DateToBeInTestcenter;
             appointmentResult.Assigend = true;
-            await appointments.ReplaceDocumentAsync(UriFactory.CreateDocumentUri("Appointment", "AppointmentForUsers", appointmentResult.Id), appointmentResult);
+
+            var apointmentsSelfLink = appointments.CreateDocumentQuery<Document>(questionsCollectionUri, new FeedOptions() { EnableCrossPartitionQuery = true })
+                .Where(p => p.Id == appointment.Id)
+                .AsEnumerable()
+                .SingleOrDefault()
+                .SelfLink;
+            
+            await appointments.ReplaceDocumentAsync(UriFactory.CreateDocumentUri("Appointment", "AppointmentForUsers", appointmentResult.Id), appointmentResult, new RequestOptions() { });
             return new OkObjectResult(appointmentResult);
         }
     }

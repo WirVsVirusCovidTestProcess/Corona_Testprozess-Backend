@@ -14,9 +14,8 @@ namespace CT.Backend.Shared.ViewModel
         public UserInformationViewModel(UserInformation baseModel)
         {
             Email = baseModel.Email;
-            FirstName = baseModel.FirstName;
-            Id = baseModel.Id;
-            LastName = baseModel.LastName;
+            Name = baseModel.Name;
+            Id = baseModel.Id;            
             Location = baseModel.Location;
             RiskScore = baseModel.RiskScore;
             Source = baseModel.Source;

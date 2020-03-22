@@ -32,7 +32,7 @@ namespace CT.Backend.Functions.Testcenters
             var requestQuery = appointments.CreateDocumentQuery<Appointment>(questionsCollectionUri, new FeedOptions() { EnableCrossPartitionQuery = true })
                 .Where(p => p.Assigend != true && p.TestResult == null);
             StringValues location;
-            if (!req.Query.TryGetValue("location", out location))
+            if (req.Query.TryGetValue("location", out location))
             {
                 log.LogInformation($"location porvided. try to get all not assinged appointments.");
                 requestQuery = requestQuery.Where(p => p.Location.ToString() == location);

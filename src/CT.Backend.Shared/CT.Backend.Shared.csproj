@@ -10,4 +10,10 @@
     <PackageReference Include="SendGrid" Version="9.13.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="ScoreCalculators\questionaire.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -26,9 +26,6 @@ namespace CT.Backend.Functions
                 ConnectionStringSetting = "QuestionsDBConnection")] DocumentClient outputTable,
             ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
-
-
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             var data = JsonConvert.DeserializeObject<TokenModel>(requestBody);
             if (string.IsNullOrEmpty(data.Token))

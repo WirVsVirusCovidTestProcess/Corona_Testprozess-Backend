@@ -1,10 +1,12 @@
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using Microsoft.Azure.Documents.Client;
 using CT.Backend.Shared.Models;
 using System.Text.Json;
@@ -13,12 +15,12 @@ using Microsoft.Azure.Documents.Linq;
 
 namespace CT.Backend.Functions.Testcenters
 {
-    public static class AddTestResultToAppointment
+    public static class AddTrackingId
     {
-        [FunctionName("AddTestResultToAppointment")]
+        [FunctionName("AddTrackingId")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Admin, "post", Route = null)] HttpRequest req,
-            [CosmosDB(
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
+             [CosmosDB(
                 databaseName: "Appointment",
                 collectionName: "AppointmentForUsers",
                 ConnectionStringSetting = "AppointmentDBConnection")] DocumentClient appointments,
@@ -51,7 +53,7 @@ namespace CT.Backend.Functions.Testcenters
             var result = await apointmentsQuery.ExecuteNextAsync<Appointment>();
             var appointmentResult = result.First();
 
-            appointmentResult.TestResult = appointment.TestResult;            
+            appointmentResult.TrackingId = appointment.TrackingId;
             await appointments.ReplaceDocumentAsync(UriFactory.CreateDocumentUri("Appointment", "AppointmentForUsers", appointmentResult.Id), appointmentResult);
             return new OkObjectResult(appointmentResult);
         }

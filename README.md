@@ -168,6 +168,42 @@ This automaticly trigger the creation of an empty appointment
 
 This will inform the user about the date and location
 
+## Add tracking Id
+
+- URL: `/api/AddTrackingId`
+- MEHTOD: POST
+- BODY: 
+
+```json
+{
+    "id":"9fbeaf47-4f6e-475f-8265-f7f5ae602d08",
+    "token":"Wqk43kzO10jbupJPF8+DQ6BNk1g0Hj5K",
+    "assigend":true,
+    "dateToBeInTestcenter":"2020-03-27T01:00:00+01:00",
+    "testcenterAddress":"00000",
+    "riskScore":1,
+    "location":"4",
+    "trackingId":"fgkjslgjfjlk",
+    "testResult":null
+}
+```
+
+- Result Body -> sample:
+
+```json
+{
+    "id":"9fbeaf47-4f6e-475f-8265-f7f5ae602d08",
+    "token":"Wqk43kzO10jbupJPF8+DQ6BNk1g0Hj5K",
+    "assigend":true,
+    "dateToBeInTestcenter":"2020-03-27T01:00:00+01:00",
+    "testcenterAddress":"00000",
+    "riskScore":1,
+    "location":"4",
+    "trackingId":"fgkjslgjfjlk",
+    "testResult":null
+}
+```
+
 ## Add test result to appointment
 
 - URL: `/api/AddTestResultToAppointment`

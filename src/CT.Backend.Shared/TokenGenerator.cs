@@ -5,9 +5,9 @@ using System.Text;
 
 namespace CT.Backend.Shared
 {
-    internal static class TokenGenerator
+    public static class TokenGenerator
     {
-        internal static string GenerateToken()
+        public static string GenerateToken()
         {
             byte[] time = BitConverter.GetBytes(DateTime.UtcNow.ToBinary());
             byte[] key = Guid.NewGuid().ToByteArray();

@@ -15,7 +15,7 @@ namespace CT.Backend.Shared.Models
         public string Id { get; set; }
         public string Token { get; set; }
         public bool Assigend { get; set; }
-        public DateTimeOffset DateToBeInTestcenter { get; set; }
+        public DateTimeOffset? DateToBeInTestcenter { get; set; }
         public string TestcenterAddress { get; set; }
         public int? RiskScore { get; set; }
         public string Location { get; set; }

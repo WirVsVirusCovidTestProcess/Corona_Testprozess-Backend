@@ -1,0 +1,239 @@
+{
+	"info": {
+		"_postman_id": "001389e1-e3e5-4212-8aa3-49a6f52ffdae",
+		"name": "WirVsVirus TestProcess",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SaveQuestionData (Options)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "84884674-72af-4243-aa95-b290bcf9702c",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "OPTIONS",
+				"header": [
+					{
+						"key": "Access-Control-Request-Method",
+						"value": "POST",
+						"type": "text"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:8100",
+						"type": "text"
+					},
+					{
+						"key": "Access-Control-Request-Header",
+						"value": "origin, x-requested-with",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Answers\": [\r\n    {\r\n      \"A\": \"1\"\r\n    },\r\n    {\r\n      \"B\": \"2\"\r\n    },\r\n    {\r\n      \"C\": \"1\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://covid-testprocess.azurewebsites.net/api/SaveQuestionData",
+					"protocol": "https",
+					"host": [
+						"covid-testprocess",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"SaveQuestionData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaveQuestionData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "84884674-72af-4243-aa95-b290bcf9702c",
+						"exec": [
+							"var result = pm.response.text()",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.environment.set(\"questionDataToken\", result);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Answers\": [\n        {\n            \"A\": \"3\"\n        },\n        {\n            \"B\": \"2\"\n        },\n        {\n            \"C\": \"1\"\n        },\n        {\n            \"D\": \"0\"\n        },\n        {\n            \"E\": \"0\"\n        },\n        {\n        \t\"F\": \"0\"\n        },\n        {\n        \t\"G\": \"0\"\n        },\n        {\n        \t\"H\": \"0\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://covid-testprocess.azurewebsites.net/api/SaveQuestionData?code={{AccessCode}}",
+					"protocol": "https",
+					"host": [
+						"covid-testprocess",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"SaveQuestionData"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "{{AccessCode}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDataFromToken",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Token\": \"{{questionDataToken}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://covid-testprocess.azurewebsites.net/api/GetDataFromToken?code={{AccessCode}}",
+					"protocol": "https",
+					"host": [
+						"covid-testprocess",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"GetDataFromToken"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "{{AccessCode}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddUserInformation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"FirstName\": \"Max\",\n\t\"LastName\": \"Mustermann\",\n\t\"Email\": \"max.mustermann@web.de\",\n\t\"Location\": \"Frankfurt\",\n\t\"Token\": \"{{questionDataToken}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://covid-testprocess.azurewebsites.net/api/AddUserInformation?code={{AccessCode}}",
+					"protocol": "https",
+					"host": [
+						"covid-testprocess",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"AddUserInformation"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "{{AccessCode}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllNotAssigendAppointMents",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://covid-testprocess.azurewebsites.net/api/GetAllNotAssigendAppointMents?code=MJG2l8FFj7eZxi3tFUp3nltp3XQvbeWcqupfXpWGfjaCi85J0ZLpnQ==&location=Frankfurt",
+					"protocol": "https",
+					"host": [
+						"covid-testprocess",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"GetAllNotAssigendAppointMents"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "MJG2l8FFj7eZxi3tFUp3nltp3XQvbeWcqupfXpWGfjaCi85J0ZLpnQ=="
+						},
+						{
+							"key": "location",
+							"value": "Frankfurt"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

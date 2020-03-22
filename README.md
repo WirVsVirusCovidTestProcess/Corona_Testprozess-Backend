@@ -141,8 +141,24 @@ This automaticly trigger the creation of an empty appointment
     "id":"c3e8da56-aefc-4f8d-bebd-9cafb3aa86e8",
     "token":"xISdXkHO10iwkQQyAocRqp51prZ3MN",
     "assigend":false,
-    "dateToBeInTestcenter":"0001-01-01T01:00:00+01:00",
-    "testcenterAddress":null,
+    "dateToBeInTestcenter":"2020-03-27T01:00:00+01:00",
+    "testcenterAddress": "00000",
+    "riskScore":1,
+    "location":"4",
+    "trackingId":null,
+    "testResult":null
+}
+```
+
+- Result Body -> sample: 
+
+```json
+{
+    "id":"9fbeaf47-4f6e-475f-8265-f7f5ae602d08",
+    "token":"Wqk43kzO10jbupJPF8+DQ6BNk1g0Hj5K",
+    "assigend":true,
+    "dateToBeInTestcenter":"2020-03-27T01:00:00+01:00",
+    "testcenterAddress":"00000",
     "riskScore":1,
     "location":"4",
     "trackingId":null,

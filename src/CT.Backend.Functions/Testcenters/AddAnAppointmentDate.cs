@@ -63,7 +63,7 @@ namespace CT.Backend.Functions.Testcenters
                 .SingleOrDefault()
                 .SelfLink;
             
-            await appointments.ReplaceDocumentAsync(UriFactory.CreateDocumentUri("Appointment", "AppointmentForUsers", appointmentResult.Id), appointmentResult, new RequestOptions() {  });
+            await appointments.ReplaceDocumentAsync(UriFactory.CreateDocumentUri("Appointment", "AppointmentForUsers", appointmentResult.Id), appointmentResult, new RequestOptions() { });
             return new OkObjectResult(appointmentResult);
         }
     }

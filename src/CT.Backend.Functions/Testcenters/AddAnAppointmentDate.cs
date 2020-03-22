@@ -10,7 +10,6 @@ using CT.Backend.Shared.Models;
 using System.Linq;
 using Microsoft.Azure.Documents.Linq;
 using System.Text.Json;
-using System.IO;
 using Microsoft.Azure.Documents;
 
 namespace CT.Backend.Functions.Testcenters
@@ -64,7 +63,7 @@ namespace CT.Backend.Functions.Testcenters
                 .SingleOrDefault()
                 .SelfLink;
             
-            await appointments.ReplaceDocumentAsync(UriFactory.CreateDocumentUri("Appointment", "AppointmentForUsers", appointmentResult.Id), appointmentResult);
+            await appointments.ReplaceDocumentAsync(UriFactory.CreateDocumentUri("Appointment", "AppointmentForUsers", appointmentResult.Id), appointmentResult, new RequestOptions() {  });
             return new OkObjectResult(appointmentResult);
         }
     }

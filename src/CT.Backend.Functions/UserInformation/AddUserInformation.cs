@@ -12,6 +12,7 @@ using System.Text.Json;
 using Microsoft.Azure.Documents;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using CT.Backend.Shared;
 
 namespace CT.Backend.Functions.UserInformation
 {
@@ -47,6 +48,7 @@ namespace CT.Backend.Functions.UserInformation
             {
                 userToSave.RiskScore = null;
             }
+            userToSave.Token = TokenGenerator.GenerateToken();
             userToSave.Source = "covapp.charite";
             await outputTable.CreateDatabaseIfNotExistsAsync(new Database() { Id = "UserInformation" });
             await outputTable.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("UserInformation"), new DocumentCollection()

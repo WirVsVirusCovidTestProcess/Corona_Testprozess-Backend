@@ -27,7 +27,6 @@ namespace CT.Backend.Functions.Testcenters
                 ConnectionStringSetting = "AppointmentDBConnection")] DocumentClient appointments,
             ILogger log)
         {
-            
             Uri questionsCollectionUri = UriFactory.CreateDocumentCollectionUri("Appointment", "AppointmentForUsers");
             var requestQuery = appointments.CreateDocumentQuery<Appointment>(questionsCollectionUri, new FeedOptions() { EnableCrossPartitionQuery = true })
                 .Where(p => p.Assigend != true && p.TestResult == null);
@@ -38,17 +37,18 @@ namespace CT.Backend.Functions.Testcenters
                 requestQuery = requestQuery.Where(p => locations.Contains(p.Location));
             }
 
-            IDocumentQuery<Appointment> apointmentsQuery = requestQuery
+            IDocumentQuery<Appointment> appointmentsQuery = requestQuery
                 .AsDocumentQuery<Appointment>();
-            if (!apointmentsQuery.HasMoreResults)
+
+            if (!appointmentsQuery.HasMoreResults)
             {
                 log.LogInformation("We havn't new infected people.");
                 return new NoContentResult();
             }
             var allResults = new List<Appointment>();
-            while (apointmentsQuery.HasMoreResults)
+            while (appointmentsQuery.HasMoreResults)
             {
-                var apppointmentResult = await apointmentsQuery.ExecuteNextAsync<Appointment>();
+                var apppointmentResult = await appointmentsQuery.ExecuteNextAsync<Appointment>();
                 allResults.AddRange(apppointmentResult);
             }
             log.LogInformation($"Try to return {allResults.Count} appointments");

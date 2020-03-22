@@ -31,11 +31,11 @@ namespace CT.Backend.Functions.Testcenters
             Uri questionsCollectionUri = UriFactory.CreateDocumentCollectionUri("Appointment", "AppointmentForUsers");
             var requestQuery = appointments.CreateDocumentQuery<Appointment>(questionsCollectionUri, new FeedOptions() { EnableCrossPartitionQuery = true })
                 .Where(p => p.Assigend != true && p.TestResult == null);
-            StringValues location;
-            if (req.Query.TryGetValue("location", out location))
+            StringValues locations;
+            if (req.Query.TryGetValue("location", out locations))
             {
-                log.LogInformation($"location porvided. try to get all not assinged appointments.");
-                requestQuery = requestQuery.Where(p => p.Location.ToString() == location);
+                log.LogInformation($"locations provided. try to get all not assinged appointments.");
+                requestQuery = requestQuery.Where(p => locations.Contains(p.Location));
             }
 
             IDocumentQuery<Appointment> apointmentsQuery = requestQuery

@@ -172,7 +172,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"FirstName\": \"Max\",\n\t\"LastName\": \"Mustermann\",\n\t\"Email\": \"max.mustermann@web.de\",\n\t\"Location\": \"65510\"\n}",
+					"raw": "{\n\t\"FirstName\": \"Max\",\n\t\"LastName\": \"Mustermann\",\n\t\"Email\": \"max.mustermann@web.de\",\n\t\"Location\": \"63636\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -249,7 +249,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{baseUrl}}/api/GetAllNotAssigendAppointMents?code={{TestCenterAccessCode}}",
+					"raw": "{{baseUrl}}/api/GetAllNotAssigendAppointMents?code={{TestCenterAccessCode}}&location=65510",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -264,7 +264,11 @@
 						},
 						{
 							"key": "location",
-							"value": "\"65510\"",
+							"value": "65510"
+						},
+						{
+							"key": "location",
+							"value": "63636",
 							"disabled": true
 						}
 					]

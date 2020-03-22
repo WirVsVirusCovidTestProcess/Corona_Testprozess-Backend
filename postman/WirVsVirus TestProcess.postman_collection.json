@@ -49,12 +49,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://covid-testprocess.azurewebsites.net/api/SaveQuestionData",
-					"protocol": "https",
+					"raw": "{{baseUrl}}/api/SaveQuestionData",
 					"host": [
-						"covid-testprocess",
-						"azurewebsites",
-						"net"
+						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
@@ -98,12 +95,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://covid-testprocess.azurewebsites.net/api/SaveQuestionData?code={{AccessCode}}",
-					"protocol": "https",
+					"raw": "{{baseUrl}}/api/SaveQuestionData?code={{AccessCode}}",
 					"host": [
-						"covid-testprocess",
-						"azurewebsites",
-						"net"
+						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
@@ -134,12 +128,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://covid-testprocess.azurewebsites.net/api/GetDataFromToken?code={{AccessCode}}",
-					"protocol": "https",
+					"raw": "{{baseUrl}}/api/GetDataFromToken?code={{AccessCode}}",
 					"host": [
-						"covid-testprocess",
-						"azurewebsites",
-						"net"
+						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
@@ -157,12 +148,31 @@
 		},
 		{
 			"name": "AddUserInformation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "84b03a32-3ddc-454c-b7fb-7852918ac8b6",
+						"exec": [
+							"var result = pm.response.text()",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.environment.set(\"userDataToken\", result);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"FirstName\": \"Max\",\n\t\"LastName\": \"Mustermann\",\n\t\"Email\": \"max.mustermann@web.de\",\n\t\"Location\": \"Frankfurt\",\n\t\"Token\": \"{{questionDataToken}}\"\n}",
+					"raw": "{\n\t\"FirstName\": \"Max\",\n\t\"LastName\": \"Mustermann\",\n\t\"Email\": \"max.mustermann@web.de\",\n\t\"Location\": \"65510\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -170,16 +180,46 @@
 					}
 				},
 				"url": {
-					"raw": "https://covid-testprocess.azurewebsites.net/api/AddUserInformation?code={{AccessCode}}",
-					"protocol": "https",
+					"raw": "{{baseUrl}}/api/AddUserInformation?code={{AccessCode}}",
 					"host": [
-						"covid-testprocess",
-						"azurewebsites",
-						"net"
+						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
 						"AddUserInformation"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "{{AccessCode}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateRiskLevelOfTheUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"UserToken\": \"{{userDataToken}}\", \n    \"QuestionToken\": \"{{questionDataToken}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/UpdateRiskLevelOfTheUser?code={{AccessCode}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"UpdateRiskLevelOfTheUser"
 					],
 					"query": [
 						{
@@ -209,12 +249,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://covid-testprocess.azurewebsites.net/api/GetAllNotAssigendAppointMents?code=MJG2l8FFj7eZxi3tFUp3nltp3XQvbeWcqupfXpWGfjaCi85J0ZLpnQ==&location=Frankfurt",
-					"protocol": "https",
+					"raw": "{{baseUrl}}/api/GetAllNotAssigendAppointMents?code={{TestCenterAccessCode}}",
 					"host": [
-						"covid-testprocess",
-						"azurewebsites",
-						"net"
+						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
@@ -223,11 +260,12 @@
 					"query": [
 						{
 							"key": "code",
-							"value": "MJG2l8FFj7eZxi3tFUp3nltp3XQvbeWcqupfXpWGfjaCi85J0ZLpnQ=="
+							"value": "{{TestCenterAccessCode}}"
 						},
 						{
 							"key": "location",
-							"value": "Frankfurt"
+							"value": "\"65510\"",
+							"disabled": true
 						}
 					]
 				}

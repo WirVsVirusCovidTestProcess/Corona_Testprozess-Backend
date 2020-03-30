@@ -42,15 +42,15 @@ namespace CT.Backend.Functions.Testcenters
                 return new BadRequestObjectResult($"There was an error in the provided json: {ex.Message} -> {ex.InnerException.Message}");
             }
             Uri questionsCollectionUri = UriFactory.CreateDocumentCollectionUri("Appointment", "AppointmentForUsers");
-            var apointmentsQuery = appointments.CreateDocumentQuery<Appointment>(questionsCollectionUri, new FeedOptions() { EnableCrossPartitionQuery = true })
+            var appointmentsQuery = appointments.CreateDocumentQuery<Appointment>(questionsCollectionUri, new FeedOptions() { EnableCrossPartitionQuery = true })
                 .Where(p => p.Token == appointment.Token)
                 .AsDocumentQuery<Appointment>();
 
-            if (!apointmentsQuery.HasMoreResults)
+            if (!appointmentsQuery.HasMoreResults)
             {
                 return new BadRequestObjectResult($"The appointment Id {appointment.Id} doesn't exsists");
             }
-            var result = await apointmentsQuery.ExecuteNextAsync<Appointment>();
+            var result = await appointmentsQuery.ExecuteNextAsync<Appointment>();
             var appointmentResult = result.First();
 
             appointmentResult.TrackingId = appointment.TrackingId;

@@ -13,7 +13,9 @@
 					"script": {
 						"id": "84884674-72af-4243-aa95-b290bcf9702c",
 						"exec": [
-							""
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -115,6 +117,25 @@
 		},
 		{
 			"name": "GetDataFromToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "65c29efd-8f58-4895-8182-c7abe0d46991",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.source).to.eql(\"covapp.charite\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -200,6 +221,20 @@
 		},
 		{
 			"name": "UpdateRiskLevelOfTheUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9dff6393-982b-42b7-906d-29dd02c98ca8",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -245,7 +280,7 @@
 							"});",
 							"",
 							"var allNotAssigendAppointments = pm.response.json();",
-							"console.log(\"result: \" + allNotAssigendAppointments);",
+							"console.log(\"allNotAssigendAppointments: \" + allNotAssigendAppointments);",
 							"",
 							"var firstNotAssigendAppointment = allNotAssigendAppointments[0];",
 							"",
@@ -272,7 +307,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{baseUrl}}/api/GetAllNotAssigendAppointMents?code={{TestCenterAccessCode}}&location=65510",
+					"raw": "{{baseUrl}}/api/GetAllNotAssigendAppointMents?code={{TestCenterAccessCode}}",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -287,7 +322,8 @@
 						},
 						{
 							"key": "location",
-							"value": "65510"
+							"value": "65510",
+							"disabled": true
 						},
 						{
 							"key": "location",
@@ -311,6 +347,24 @@
 						],
 						"type": "text/javascript"
 					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "3932ad80-65f7-472d-a64c-c7bafbe4ad5d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Assigned should  be true\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.assigend).to.eql(true);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
 			],
 			"request": {
@@ -326,7 +380,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{baseUrl}}/api/AddAnAppointmentDate?code={{AccessCode}}",
+					"raw": "{{baseUrl}}/api/AddAnAppointmentDate?code={{TestCenterAccessCode}}",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -337,7 +391,200 @@
 					"query": [
 						{
 							"key": "code",
-							"value": "{{AccessCode}}"
+							"value": "{{TestCenterAccessCode}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllAssignedAppointments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "222de88d-c9da-4077-916b-cb804bf30c00",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var allAssignedAppointments = pm.response.json();",
+							"console.log(\"allAssignedAppointments: \" + allAssignedAppointments);",
+							"",
+							"var firstAssignedAppointments = allAssignedAppointments[0];",
+							"",
+							"pm.environment.set(\"firstAssignedAppointmentId\", firstAssignedAppointments.id);",
+							"pm.environment.set(\"firstAssignedAppointmentToken\", firstAssignedAppointments.token);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/GetAllAssignedAppointments?code={{TestCenterAccessCode}}&location=65510",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"GetAllAssignedAppointments"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "{{TestCenterAccessCode}}"
+						},
+						{
+							"key": "location",
+							"value": "65510"
+						},
+						{
+							"key": "location",
+							"value": "63636",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddTrackingId",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a6f9339e-943c-492c-89b0-1cb479a2ca0e",
+						"exec": [
+							"var u = Date.now().toString(16) + Math.random().toString(16) + '0'.repeat(16);\r",
+							"var guid = [u.substr(0,8), u.substr(8,4), '4000-8' + u.substr(13,3), u.substr(16,12)].join('-');\r",
+							"\r",
+							"\r",
+							"pm.environment.set(\"trackingId\", guid);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "3932ad80-65f7-472d-a64c-c7bafbe4ad5d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"token\": \"{{firstAssignedAppointmentToken}}\",\r\n        \"trackingId\":\"{{trackingId}}\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/AddTrackingId?code={{TestCenterAccessCode}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"AddTrackingId"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "{{TestCenterAccessCode}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddTestResultToAppointment",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a6f9339e-943c-492c-89b0-1cb479a2ca0e",
+						"exec": [
+							"var u = Date.now().toString(16) + Math.random().toString(16) + '0'.repeat(16);\r",
+							"var guid = [u.substr(0,8), u.substr(8,4), '4000-8' + u.substr(13,3), u.substr(16,12)].join('-');\r",
+							"\r",
+							"\r",
+							"pm.environment.set(\"trackingId\", guid);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "3932ad80-65f7-472d-a64c-c7bafbe4ad5d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"token\": \"{{firstAssignedAppointmentToken}}\",\r\n        \"testResult\": true\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/AddTestResultToAppointment?code={{TestCenterAccessCode}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"AddTestResultToAppointment"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "{{TestCenterAccessCode}}"
 						}
 					]
 				}

@@ -4,6 +4,15 @@
 
 ## Use the api
 
+### 0 Step 0! WarmUp
+
+This step should run after every deployment. It makes shure that the Database has all requiered schemas. Simply call the following endpoint:
+
+- URL: `/api/WarmUp`
+- Method: GET
+
+- Result Body contains the following if it succeed: "Successfully create the database schema"
+
 ### 1 Add the answered questions
 
 - URL: `/api/SaveQuestionData`

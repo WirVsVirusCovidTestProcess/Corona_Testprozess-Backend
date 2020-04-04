@@ -17,7 +17,7 @@ namespace CT.Backend.Functions
     {
         [FunctionName("WarmUp")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Admin, "get", "post", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             [CosmosDB(
                 databaseName: "QuestionsData",
                 collectionName: "QuestionsData",

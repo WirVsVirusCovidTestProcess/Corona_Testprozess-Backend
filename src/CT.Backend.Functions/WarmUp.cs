@@ -56,7 +56,7 @@ namespace CT.Backend.Functions
                 Id = "leases",
                 PartitionKey = new PartitionKeyDefinition()
                 {
-                    Paths = new Collection<string>() { "/Id" }
+                    Paths = new Collection<string>() { "/id" }
                 }
             });
 
@@ -84,7 +84,7 @@ namespace CT.Backend.Functions
                 Id = "leases",
                 PartitionKey = new PartitionKeyDefinition()
                 {
-                    Paths = new Collection<string>() { "/Id" }
+                    Paths = new Collection<string>() { "/id" }
                 }
             });
 
@@ -112,7 +112,7 @@ namespace CT.Backend.Functions
                 Id = "leases",
                 PartitionKey = new PartitionKeyDefinition()
                 {
-                    Paths = new Collection<string>() { "/Id" }
+                    Paths = new Collection<string>() { "/id" }
                 }
             });
             return new OkObjectResult("Successfully create the database schema");
